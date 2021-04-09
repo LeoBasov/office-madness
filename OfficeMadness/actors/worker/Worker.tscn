@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Worker.gd" type="Script" id=1]
+[ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=2]
+
+[node name="Worker" instance=ExtResource( 2 )]
+animation = "idle_down"
+script = ExtResource( 1 )
