@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/furniture_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://actors/worker/Worker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/test/TestLevel.gd" type="Script" id=3]
 [ext_resource path="res://assets/graphic/Office_walls_floors_16x16.png" type="Texture" id=4]
+[ext_resource path="res://actors/sprites/bob_sorite.tres" type="SpriteFrames" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Office_walls_floors_16x16.png 0"
@@ -243,6 +244,11 @@ navpoly = SubResource( 3 )
 [node name="Worker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 344, 186 )
 scale = Vector2( 2, 2 )
+frames = ExtResource( 5 )
 animation = "phone"
-frame = 6
+frame = 4
 playing = true
+
+[node name="Worker2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 203, 455 )
+scale = Vector2( 2, 2 )
