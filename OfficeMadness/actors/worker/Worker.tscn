@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Worker.gd" type="Script" id=1]
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/graphic/select_icon4.png" type="Texture" id=6]
 [ext_resource path="res://actors/sprites/bob_sprite.tres" type="SpriteFrames" id=7]
 [ext_resource path="res://actors/worker/SelectIcon.gd" type="Script" id=8]
+[ext_resource path="res://effects/Effect.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -33,6 +34,9 @@ position = Vector2( 0, -18 )
 frames = SubResource( 1 )
 frame = 4
 script = ExtResource( 8 )
+
+[node name="Effect" parent="SelectIcon" index="0" instance=ExtResource( 9 )]
+effect_type = 1
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 

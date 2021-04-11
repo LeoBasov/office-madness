@@ -24,3 +24,4 @@ func _on_Area2D_mouse_entered():
 
 func _on_Area2D_mouse_exited():
 	mouse_over = false
+
