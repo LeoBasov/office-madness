@@ -22,6 +22,5 @@ func _input(event):
 func _on_Area2D_mouse_entered():
 	mouse_over = true
 
-
 func _on_Area2D_mouse_exited():
 	mouse_over = false

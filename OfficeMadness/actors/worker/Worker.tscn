@@ -18,7 +18,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 12 )
 
-[node name="Worker" instance=ExtResource( 2 )]
+[node name="Worker" groups=[
+"workers",
+] instance=ExtResource( 2 )]
 animation = "idle_down"
 script = ExtResource( 1 )
 

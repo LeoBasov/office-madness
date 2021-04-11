@@ -245,5 +245,5 @@ navpoly = SubResource( 3 )
 position = Vector2( 344, 186 )
 scale = Vector2( 2, 2 )
 animation = "phone"
-frame = 10
+frame = 4
 playing = true

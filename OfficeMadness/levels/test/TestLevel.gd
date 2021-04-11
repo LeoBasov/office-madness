@@ -1,4 +1,7 @@
 extends Node
 
 func _ready():
-	$Worker.navigator = $Navigation2D
+	var workers = get_tree().get_nodes_in_group("workers")
+	
+	for worker in workers:
+		worker.navigator = $Navigation2D
