@@ -10,6 +10,7 @@ func _ready():
 	
 	worker_frames[0] = load("res://actors/sprites/adam_sprite.tres")
 	worker_frames[1] = load("res://actors/sprites/amelia_sprite.tres")
+	worker_frames[2] = load("res://actors/sprites/bob_sprite.tres")
 	
 	for worker in workers:
 		var anim_sprite_rand_nr = rng.randi_range(0, worker_frames.size() - 1)
