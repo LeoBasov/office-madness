@@ -23,3 +23,8 @@ func _process(delta):
 			factor = 1.0
 	
 		object.modulate = Color(val,val,val)
+
+func reset():
+	if object:
+		object.modulate = Color(1.0,1.0,1.0)
+		effect_type = Type.NONE

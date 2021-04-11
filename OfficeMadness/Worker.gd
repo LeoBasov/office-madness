@@ -7,6 +7,8 @@ func _ready():
 	._ready()
 	$SelectIcon.play()
 	$SelectIcon.hide()
+	
+	$Effect.object = self
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -21,7 +23,9 @@ func _input(event):
 
 func _on_Area2D_mouse_entered():
 	mouse_over = true
+	$Effect.effect_type = $Effect.Type.BLINCK
 
 func _on_Area2D_mouse_exited():
 	mouse_over = false
+	$Effect.reset()
 
