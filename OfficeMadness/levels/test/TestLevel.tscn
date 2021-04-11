@@ -246,27 +246,28 @@ navpoly = SubResource( 3 )
 position = Vector2( 344, 186 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 5 )
+frame = 7
 
 [node name="Worker2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 472, 120 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 5 )
-frame = 1
+frame = 8
 
 [node name="Worker3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 336, 360 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 5 )
-frame = 1
+frame = 8
 
 [node name="Worker4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 512, 328 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 5 )
-frame = 1
+frame = 8
 
 [node name="Worker5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 624, 208 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 5 )
-frame = 14
+frame = 5
