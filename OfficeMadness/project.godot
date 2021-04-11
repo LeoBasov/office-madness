@@ -19,6 +19,12 @@ config/name="OfficeMadness"
 run/main_scene="res://levels/test/TestLevel.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1600
+window/size/height=860
+window/size/resizable=false
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
