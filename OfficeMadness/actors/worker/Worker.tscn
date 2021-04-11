@@ -1,8 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Worker.gd" type="Script" id=1]
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/graphic/select_icon2.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphic/select_icon1.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphic/select_icon3.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphic/select_icon4.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 12 )
 
 [node name="Worker" instance=ExtResource( 2 )]
 animation = "idle_down"
 script = ExtResource( 1 )
+
+[node name="SelectIcon" type="AnimatedSprite" parent="." index="1"]
+modulate = Color( 0.827451, 1, 0, 1 )
+position = Vector2( 0, -18 )
+frames = SubResource( 1 )
+frame = 7
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 0, 4 )
+shape = SubResource( 2 )
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

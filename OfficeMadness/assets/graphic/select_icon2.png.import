@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Adam_run_16x16.png-d864ed54f427b0559f77336291117657.stex"
+path="res://.import/select_icon2.png-c22443a2e129aec8aedca29057c2e85e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphic/Adam_run_16x16.png"
-dest_files=[ "res://.import/Adam_run_16x16.png-d864ed54f427b0559f77336291117657.stex" ]
+source_file="res://assets/graphic/select_icon2.png"
+dest_files=[ "res://.import/select_icon2.png-c22443a2e129aec8aedca29057c2e85e.stex" ]
 
 [params]
 
