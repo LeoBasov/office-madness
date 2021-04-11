@@ -16,7 +16,7 @@ func _input(event):
 		elif event.button_index == BUTTON_LEFT and event.pressed and !mouse_over:
 			selected = false
 			$SelectIcon.hide()
-		elif event.button_index == BUTTON_RIGHT and event.pressed:
+		elif event.button_index == BUTTON_RIGHT and event.pressed and selected:
 			navigate(event.position)
 
 func _on_Area2D_mouse_entered():
