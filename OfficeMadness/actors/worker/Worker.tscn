@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Worker.gd" type="Script" id=1]
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://actors/worker/SelectIcon.gd" type="Script" id=8]
 [ext_resource path="res://effects/Effect.tscn" type="PackedScene" id=9]
 [ext_resource path="res://actors/worker/WorkerIdle.gd" type="Script" id=10]
+[ext_resource path="res://actors/worker/FSM.gd" type="Script" id=11]
+[ext_resource path="res://actors/worker/Walk.gd" type="Script" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,7 +33,13 @@ animation = "phone"
 frame = 1
 script = ExtResource( 1 )
 
-[node name="Idle" parent="FSM" index="0"]
+[node name="FSM" parent="." index="0"]
+script = ExtResource( 11 )
+
+[node name="Walk" type="Node" parent="FSM" index="0"]
+script = ExtResource( 12 )
+
+[node name="Idle" type="Node" parent="FSM" index="1"]
 script = ExtResource( 10 )
 
 [node name="BoredTimer" type="Timer" parent="FSM/Idle" index="0"]

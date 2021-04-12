@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://actors/sprites/adam_sprite.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://actors/Actor.gd" type="Script" id=2]
-[ext_resource path="res://actors/FSM.gd" type="Script" id=3]
-[ext_resource path="res://actors/Walk.gd" type="Script" id=4]
-[ext_resource path="res://actors/Idle.gd" type="Script" id=5]
+[ext_resource path="res://actors/FMS.gd" type="Script" id=3]
 
 [node name="Actor" type="AnimatedSprite"]
 frames = ExtResource( 1 )
@@ -15,9 +13,3 @@ __meta__ = {
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource( 3 )
-
-[node name="Idle" type="Node" parent="FSM"]
-script = ExtResource( 5 )
-
-[node name="Walk" type="Node" parent="FSM"]
-script = ExtResource( 4 )

@@ -2,7 +2,7 @@ extends Node
 
 var actor : AnimatedSprite
 var speed : float = 100
-var state_list =  load("res://actors/StateList.gd").new()
+var state_list =  load("res://actors/worker/StateList.gd").new()
 var return_state = null
 
 func initialize():
