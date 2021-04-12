@@ -19,10 +19,5 @@ script = ExtResource( 3 )
 [node name="Idle" type="Node" parent="FSM"]
 script = ExtResource( 5 )
 
-[node name="BoredTimer" type="Timer" parent="FSM/Idle"]
-wait_time = 4.0
-one_shot = true
-
 [node name="Walk" type="Node" parent="FSM"]
 script = ExtResource( 4 )
-[connection signal="timeout" from="FSM/Idle/BoredTimer" to="FSM/Idle" method="_on_BoredTimer_timeout"]
