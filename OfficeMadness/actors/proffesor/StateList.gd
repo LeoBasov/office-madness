@@ -1,3 +1,3 @@
 extends Node
 
-enum State {IDLE, LOOP}
+enum State {IDLE, LOOP, IDEA}

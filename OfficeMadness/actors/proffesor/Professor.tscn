@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/sprites/proffesor_sprite.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://actors/proffesor/Idle.gd" type="Script" id=3]
 [ext_resource path="res://actors/proffesor/Loop.gd" type="Script" id=4]
 [ext_resource path="res://actors/proffesor/FSM.gd" type="Script" id=5]
+[ext_resource path="res://assets/graphic/light_bulb.png" type="Texture" id=6]
+[ext_resource path="res://actors/proffesor/Idea.gd" type="Script" id=7]
+[ext_resource path="res://actors/proffesor/IdeaBulb.gd" type="Script" id=8]
 
 [node name="Professor" instance=ExtResource( 1 )]
 frames = ExtResource( 2 )
-animation = "run_right"
+animation = "idle_down"
 
 [node name="FSM" parent="." index="0"]
 script = ExtResource( 5 )
@@ -18,3 +21,15 @@ script = ExtResource( 3 )
 
 [node name="Loop" type="Node" parent="FSM" index="1"]
 script = ExtResource( 4 )
+
+[node name="Idea" type="Node" parent="FSM" index="2"]
+script = ExtResource( 7 )
+
+[node name="IdeaTimer" type="Timer" parent="FSM/Idea" index="0"]
+one_shot = true
+
+[node name="IdeaBulb" type="Sprite" parent="." index="1"]
+position = Vector2( 0, -32 )
+texture = ExtResource( 6 )
+script = ExtResource( 8 )
+[connection signal="timeout" from="FSM/Idea/IdeaTimer" to="FSM/Idea" method="_on_IdeaTimer_timeout"]
