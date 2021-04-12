@@ -15,6 +15,5 @@ func set_actor(new_actor):
 	for state in states.values():
 		state.actor = actor
 		actor.connect("navigate", state, "_on_actor_navigate")
-		actor.connect("animation_finished", state, "_on_animation_finished")
 	
 	states[current_state].initialize()
