@@ -1,7 +1,5 @@
 extends Node
 
-enum State {IDLE, WALK}
-var return_state = State.IDLE
 var states : Dictionary = {}
 var current_state
 

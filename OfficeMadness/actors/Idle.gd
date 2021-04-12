@@ -1,18 +1,20 @@
-extends "res://actors/BaseFMS.gd"
+extends Node
 
 var actor : AnimatedSprite
+var state_list =  load("res://actors/StateList.gd").new()
+var return_state = null
 
 func initialize():
 	actor.animation = "idle_down"
 	actor.play()
-	return_state = State.IDLE
+	return_state = state_list.State.IDLE
 	$BoredTimer.start()
 	
 func execute(delta):
 	return return_state
 
 func _on_actor_navigate(position):
-	return_state = State.WALK
+	return_state = state_list.State.WALK
 
 
 func _on_BoredTimer_timeout():

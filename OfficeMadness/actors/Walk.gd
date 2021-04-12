@@ -1,17 +1,19 @@
-extends "res://actors/BaseFMS.gd"
+extends Node
 
 var actor : AnimatedSprite
 var speed : float = 100
+var state_list =  load("res://actors/StateList.gd").new()
+var return_state = null
 
 func initialize():
-	return_state = State.WALK
+	return_state = state_list.State.WALK
 	# load and play animation
 	
 func execute(delta):
 	var direction = actor._move(delta, speed)
 	
 	if !direction.length():
-		return_state = State.IDLE
+		return_state = state_list.State.IDLE
 	elif (direction.angle() <= PI and direction.angle() >= 3*PI/4) or (direction.angle() >= -PI and direction.angle() <= -3*PI/4):
 		actor.animation = "run_left"
 		actor.play()
