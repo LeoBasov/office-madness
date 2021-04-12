@@ -16,7 +16,6 @@ func execute(delta):
 func _on_actor_navigate(position):
 	return_state = state_list.State.WALK
 
-
 func _on_BoredTimer_timeout():
 	actor.animation = "phone"
 	actor.play()
