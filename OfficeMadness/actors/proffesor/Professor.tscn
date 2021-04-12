@@ -27,6 +27,7 @@ script = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="IdeaTimer" type="Timer" parent="FSM/Loop" index="0"]
+wait_time = 10.0
 one_shot = true
 
 [node name="Idea" type="Node" parent="FSM" index="2"]

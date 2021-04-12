@@ -4,7 +4,7 @@ var actor : AnimatedSprite
 var state_list =  load("res://actors/proffesor/StateList.gd").new()
 var return_state = null
 var rng = RandomNumberGenerator.new()
-var speed : float = 100
+var speed : float = 200
 var hunt_worker
 
 func _ready():

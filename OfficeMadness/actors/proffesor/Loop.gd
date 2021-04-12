@@ -8,7 +8,6 @@ var index : int = 0
 
 func initialize():
 	return_state = state_list.State.LOOP
-	index = 0
 	$IdeaTimer.start()
 	
 func execute(delta):
