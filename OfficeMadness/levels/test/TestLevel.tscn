@@ -22,12 +22,12 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="NavigationPolygon" id=3]
+[sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 102, 100, 102, 56, 104, 84, 104, 124, 108, 212, 108, 220, 106, 216, 106, 170, 28, 220, 32, 216, 28, 168, 32, 170, 108, 168, 108, 208, 28, 124, 34, 100, 28, 40, 34, 56, 104, 40, 104, 80, 132, 80, 132, 14, 500, 16, 500, 288, 28, 288, 28, 264, 108, 264, 108, 272, 132, 272, 132, 212, 132, 208, 132, 84 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 6, 5, 8, 9 ), PoolIntArray( 9, 8, 10, 11 ), PoolIntArray( 11, 10, 12, 7 ), PoolIntArray( 7, 12, 13 ), PoolIntArray( 4, 7, 13 ), PoolIntArray( 0, 3, 14, 15 ), PoolIntArray( 15, 14, 16, 17 ), PoolIntArray( 17, 16, 18, 1 ), PoolIntArray( 1, 18, 19 ), PoolIntArray( 2, 1, 19 ), PoolIntArray( 20, 21, 22, 23 ), PoolIntArray( 24, 25, 26, 27 ), PoolIntArray( 23, 24, 27, 28 ), PoolIntArray( 29, 4, 13, 30 ), PoolIntArray( 31, 2, 19, 20 ), PoolIntArray( 31, 20, 23 ), PoolIntArray( 30, 31, 23 ), PoolIntArray( 29, 30, 23 ), PoolIntArray( 29, 23, 28 ) ]
 outlines = [ PoolVector2Array( 500, 16, 132, 14, 132, 80, 104, 80, 104, 40, 28, 40, 28, 124, 104, 124, 104, 84, 132, 84, 132, 208, 108, 208, 108, 168, 28, 168, 28, 220, 108, 220, 108, 212, 132, 212, 132, 272, 108, 272, 108, 264, 28, 264, 28, 288, 500, 288 ), PoolVector2Array( 102, 56, 102, 100, 34, 100, 34, 56 ), PoolVector2Array( 106, 216, 106, 170, 32, 170, 32, 216 ) ]
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=3]
 0/name = "Office_walls_floors_16x16.png 0"
 0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
@@ -226,7 +226,7 @@ tile_data = PoolIntArray( 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 position = Vector2( -8, 0 )
 scale = Vector2( 2, 2 )
-navpoly = SubResource( 3 )
+navpoly = SubResource( 2 )
 
 [node name="Worker" parent="." instance=ExtResource( 2 )]
 position = Vector2( 344, 186 )
@@ -266,7 +266,7 @@ tile_data = PoolIntArray( 262146, 1, 0, 262147, 3, 0, 262148, 3, 0, 262149, 2, 0
 
 [node name="Walls" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )
-tile_set = SubResource( 2 )
+tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 1, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 6, 0, 65536, 3, 0, 65543, 9, 0, 131079, 6, 0, 196608, 3, 0, 196615, 8, 0, 262151, 12, 0, 327680, 3, 0, 393223, 6, 0, 458752, 2, 0, 458759, 8, 0, 524288, 3, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524293, 5, 0, 524294, 5, 0, 524295, 6, 0, 589831, 8, 0, 655360, 0, 0, 655367, 6, 0, 720896, 0, 0, 720903, 8, 0, 786432, 0, 0, 786439, 12, 0, 851968, 0, 0, 917504, 0, 0, 917505, 5, 0, 917506, 5, 0, 917507, 5, 0, 917508, 5, 0, 917509, 5, 0, 917510, 5, 0, 917511, 6, 0, 983040, 0, 0, 983047, 8, 0, 1048576, 0, 0, 1048583, 12, 0, 1114112, 0, 0, 1179648, 2, 0 )
