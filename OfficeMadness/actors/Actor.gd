@@ -43,4 +43,17 @@ func _move(delta : float, speed : float) -> Vector2:
 		direction = path_follow_2d.position - position
 		position = path_follow_2d.position
 		
+	if (direction.angle() <= PI and direction.angle() >= 3*PI/4) or (direction.angle() >= -PI and direction.angle() <= -3*PI/4):
+		animation = "run_left"
+		play()
+	elif direction.angle() <= 3*PI/4 and direction.angle() >= PI/4:
+		animation = "run_down"
+		play()
+	elif direction.angle() >= -3*PI/4 and direction.angle() <= -PI/4:
+		animation = "run_up"
+		play()
+	elif (direction.angle() >= 0 and direction.angle() <= 3*PI/4) or (direction.angle() <= 0 and direction.angle() >= -3*PI/4):
+		animation = "run_right"
+		play()
+		
 	return direction
