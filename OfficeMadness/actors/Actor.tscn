@@ -9,6 +9,9 @@
 [node name="Actor" type="AnimatedSprite"]
 frames = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource( 3 )
