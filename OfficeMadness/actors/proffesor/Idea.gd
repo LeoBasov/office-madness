@@ -9,7 +9,7 @@ func initialize():
 	actor.play()
 	actor.get_node("IdeaBulb").show()
 	return_state = state_list.State.IDEA
-	$IdeaTimer.start()
+	$IdeaBulbTimer.start()
 	
 func execute(delta):
 	return return_state

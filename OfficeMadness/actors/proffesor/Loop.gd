@@ -9,6 +9,7 @@ var index : int = 0
 func initialize():
 	return_state = state_list.State.LOOP
 	index = 0
+	$IdeaTimer.start()
 	
 func execute(delta):
 	var direction = actor._move(delta, speed)
@@ -23,3 +24,7 @@ func execute(delta):
 		return_state = state_list.State.IDLE
 	
 	return return_state
+
+
+func _on_IdeaTimer_timeout():
+	return_state = state_list.State.IDEA

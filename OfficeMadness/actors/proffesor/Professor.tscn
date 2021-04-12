@@ -22,14 +22,18 @@ script = ExtResource( 3 )
 [node name="Loop" type="Node" parent="FSM" index="1"]
 script = ExtResource( 4 )
 
+[node name="IdeaTimer" type="Timer" parent="FSM/Loop" index="0"]
+one_shot = true
+
 [node name="Idea" type="Node" parent="FSM" index="2"]
 script = ExtResource( 7 )
 
-[node name="IdeaTimer" type="Timer" parent="FSM/Idea" index="0"]
+[node name="IdeaBulbTimer" type="Timer" parent="FSM/Idea" index="0"]
 one_shot = true
 
 [node name="IdeaBulb" type="Sprite" parent="." index="1"]
 position = Vector2( 0, -32 )
 texture = ExtResource( 6 )
 script = ExtResource( 8 )
-[connection signal="timeout" from="FSM/Idea/IdeaTimer" to="FSM/Idea" method="_on_IdeaTimer_timeout"]
+[connection signal="timeout" from="FSM/Loop/IdeaTimer" to="FSM/Loop" method="_on_IdeaTimer_timeout"]
+[connection signal="timeout" from="FSM/Idea/IdeaBulbTimer" to="FSM/Idea" method="_on_IdeaTimer_timeout"]
