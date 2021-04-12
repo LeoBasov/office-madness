@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/furniture_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://actors/worker/Worker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/test/TestLevel.gd" type="Script" id=3]
 [ext_resource path="res://assets/graphic/Office_walls_floors_16x16.png" type="Texture" id=4]
 [ext_resource path="res://actors/sprites/amelia_sprite.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://actors/proffesor/Professor.tscn" type="PackedScene" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Office_walls_floors_16x16.png 0"
@@ -265,3 +266,6 @@ tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 1, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 6, 0, 65536, 3, 0, 65543, 9, 0, 131079, 6, 0, 196608, 3, 0, 196615, 8, 0, 262151, 12, 0, 327680, 3, 0, 393223, 6, 0, 458752, 2, 0, 458759, 8, 0, 524288, 3, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524293, 5, 0, 524294, 5, 0, 524295, 6, 0, 589831, 8, 0, 655360, 0, 0, 655367, 6, 0, 720896, 0, 0, 720903, 8, 0, 786432, 0, 0, 786439, 12, 0, 851968, 0, 0, 917504, 0, 0, 917505, 5, 0, 917506, 5, 0, 917507, 5, 0, 917508, 5, 0, 917509, 5, 0, 917510, 5, 0, 917511, 6, 0, 983040, 0, 0, 983047, 8, 0, 1048576, 0, 0, 1048583, 12, 0, 1114112, 0, 0, 1179648, 2, 0 )
+
+[node name="Professor" parent="." instance=ExtResource( 6 )]
+position = Vector2( 796, 204 )
