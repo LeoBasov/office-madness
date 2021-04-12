@@ -24,6 +24,7 @@ extents = Vector2( 8, 12 )
 [node name="Worker" groups=[
 "workers",
 ] instance=ExtResource( 2 )]
+scale = Vector2( 2, 2 )
 frames = ExtResource( 7 )
 animation = "phone"
 frame = 1
