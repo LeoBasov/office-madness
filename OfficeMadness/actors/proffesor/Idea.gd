@@ -20,4 +20,4 @@ func execute(delta):
 
 func _on_IdeaTimer_timeout():
 	actor.get_node("IdeaBulb").hide()
-	return_state = state_list.State.LOOP
+	return_state = state_list.State.HUNT
