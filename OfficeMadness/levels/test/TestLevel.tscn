@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/furniture_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://actors/worker/Worker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/test/TestLevel.gd" type="Script" id=3]
 [ext_resource path="res://assets/graphic/Office_walls_floors_16x16.png" type="Texture" id=4]
 [ext_resource path="res://actors/sprites/amelia_sprite.tres" type="SpriteFrames" id=5]
-[ext_resource path="res://actors/proffesor/Professor.tscn" type="PackedScene" id=6]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Office_walls_floors_16x16.png 0"
@@ -252,9 +251,6 @@ frame = 2
 position = Vector2( 624, 208 )
 frames = ExtResource( 5 )
 frame = 15
-
-[node name="Professor" parent="." instance=ExtResource( 6 )]
-position = Vector2( 756, 152 )
 
 [node name="Furniture" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )

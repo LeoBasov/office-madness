@@ -17,5 +17,3 @@ func _ready():
 		
 		worker.navigator = $Navigation2D
 		worker.set_sprite_frames(worker_frames[anim_sprite_rand_nr])
-
-	$Professor.navigator = $Navigation2D
