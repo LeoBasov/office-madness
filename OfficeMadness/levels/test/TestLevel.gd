@@ -32,3 +32,4 @@ func _ready():
 
 	$Professor.navigator = $Navigation2D
 	$Professor.loop_poinst = assemble_navi_points()
+	$Professor.worker_list = workers
