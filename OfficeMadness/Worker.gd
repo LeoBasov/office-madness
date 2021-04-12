@@ -23,7 +23,9 @@ func _input(event):
 
 func _on_Area2D_mouse_entered():
 	mouse_over = true
-	$Effect.effect_type = $Effect.Type.BLINCK
+	
+	if !selected:
+		$Effect.effect_type = $Effect.Type.BLINCK
 
 func _on_Area2D_mouse_exited():
 	mouse_over = false
