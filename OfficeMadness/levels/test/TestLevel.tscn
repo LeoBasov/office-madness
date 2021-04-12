@@ -269,3 +269,21 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 
 
 [node name="Professor" parent="." instance=ExtResource( 6 )]
 position = Vector2( 796, 204 )
+
+[node name="Pos1" type="Position2D" parent="."]
+position = Vector2( 764, 68 )
+
+[node name="Pos2" type="Position2D" parent="."]
+position = Vector2( 764, 500 )
+
+[node name="Pos3" type="Position2D" parent="."]
+position = Vector2( 580, 500 )
+
+[node name="Pos4" type="Position2D" parent="."]
+position = Vector2( 580, 560 )
+
+[node name="Pos5" type="Position2D" parent="."]
+position = Vector2( 960, 552 )
+
+[node name="Pos6" type="Position2D" parent="."]
+position = Vector2( 960, 68 )

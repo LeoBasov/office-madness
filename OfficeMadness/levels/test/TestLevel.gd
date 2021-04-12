@@ -2,6 +2,18 @@ extends Node
 
 var rng = RandomNumberGenerator.new()
 
+func assemble_navi_points():
+	var points = []
+	
+	points.push_back($Pos1.position)
+	points.push_back($Pos2.position)
+	points.push_back($Pos3.position)
+	points.push_back($Pos4.position)
+	points.push_back($Pos5.position)
+	points.push_back($Pos6.position)
+	
+	return points
+
 func _ready():
 	var workers = get_tree().get_nodes_in_group("workers")
 	var worker_frames = {}
@@ -19,3 +31,4 @@ func _ready():
 		worker.set_sprite_frames(worker_frames[anim_sprite_rand_nr])
 
 	$Professor.navigator = $Navigation2D
+	$Professor.loop_poinst = assemble_navi_points()

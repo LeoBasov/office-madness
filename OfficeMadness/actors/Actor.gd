@@ -3,6 +3,7 @@ extends AnimatedSprite
 var path_2d : Path2D
 var path_follow_2d : PathFollow2D
 var navigator : Navigation2D
+var loop_poinst = []
 
 signal navigate(position)
 
