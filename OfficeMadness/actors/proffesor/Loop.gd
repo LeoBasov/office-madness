@@ -10,6 +10,9 @@ func initialize():
 	return_state = state_list.State.LOOP
 	$IdeaTimer.start()
 	
+	if actor.loop_poinst.size():
+		actor._navigate(actor.loop_poinst[index])
+	
 func execute(delta):
 	var direction = actor._move(delta, speed)
 	

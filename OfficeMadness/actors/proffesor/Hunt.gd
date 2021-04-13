@@ -29,5 +29,5 @@ func execute(delta):
 	return return_state
 
 func _on_Area2D_area_entered(area):
-	if area.get_owner().is_in_group("workers"):
+	if area.get_owner().is_in_group("workers") and actor.get_node("FSM").current_state == actor.get_node("FSM").state_list.State.HUNT:
 		return_state = state_list.State.LOOP
