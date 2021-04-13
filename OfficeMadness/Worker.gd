@@ -1,5 +1,8 @@
 extends "res://actors/Actor.gd"
 
+signal remove_worker
+signal add_worker
+
 var mouse_over : bool = false
 var selected : bool = false
 
@@ -36,4 +39,5 @@ func _on_object_selected(object):
 		var pos = object.position
 		
 		pos.y -= 50
+		emit_signal("add_worker")
 		navigate(pos)

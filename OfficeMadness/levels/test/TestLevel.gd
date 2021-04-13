@@ -30,6 +30,7 @@ func _ready():
 		
 		worker.navigator = $Navigation2D
 		worker.set_sprite_frames(worker_frames[anim_sprite_rand_nr])
+		worker.connect("add_worker", $UI, "_on_worker_add")
 		
 		for object in objects:
 			object.connect("selected", worker, "_on_object_selected")
