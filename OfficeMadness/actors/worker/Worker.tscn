@@ -22,7 +22,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 12 )
+extents = Vector2( 7, 11 )
 
 [node name="Worker" groups=[
 "workers",
@@ -56,14 +56,12 @@ script = ExtResource( 8 )
 [node name="Effect" parent="SelectIcon" index="0" instance=ExtResource( 9 )]
 effect_type = 1
 
-[node name="Area2D" type="Area2D" parent="." index="2"]
+[node name="Effect" parent="." index="2" instance=ExtResource( 9 )]
+max_mod = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2( 0, 4 )
+position = Vector2( 0.5, 5 )
 shape = SubResource( 2 )
-
-[node name="Effect" parent="." index="3" instance=ExtResource( 9 )]
-max_mod = 0.7
 [connection signal="animation_finished" from="." to="FSM/Idle" method="_on_Worker_animation_finished"]
 [connection signal="timeout" from="FSM/Idle/BoredTimer" to="FSM/Idle" method="_on_BoredTimer_timeout"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]

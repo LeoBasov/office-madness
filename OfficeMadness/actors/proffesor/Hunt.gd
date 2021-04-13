@@ -27,3 +27,7 @@ func execute(delta):
 		return_state = state_list.State.LOOP
 	
 	return return_state
+
+func _on_Area2D_area_entered(area):
+	if area.get_owner().is_in_group("workers"):
+		return_state = state_list.State.LOOP
