@@ -30,6 +30,6 @@ func _ready():
 		worker.navigator = $Navigation2D
 		worker.set_sprite_frames(worker_frames[anim_sprite_rand_nr])
 
-	$Professor.navigator = $Navigation2D
-	$Professor.loop_poinst = assemble_navi_points()
-	$Professor.worker_list = workers
+	$YSort/Professor.navigator = $Navigation2D
+	$YSort/Professor.loop_poinst = assemble_navi_points()
+	$YSort/Professor.worker_list = workers
