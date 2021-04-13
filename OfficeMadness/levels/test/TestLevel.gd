@@ -16,6 +16,7 @@ func assemble_navi_points():
 
 func _ready():
 	var workers = get_tree().get_nodes_in_group("workers")
+	var objects = get_tree().get_nodes_in_group("objects")
 	var worker_frames = {}
 	
 	rng.randomize()
@@ -29,6 +30,9 @@ func _ready():
 		
 		worker.navigator = $Navigation2D
 		worker.set_sprite_frames(worker_frames[anim_sprite_rand_nr])
+		
+		for object in objects:
+			object.connect("selected", worker.get_node("FSM").get_node("Work"), "_on_object_selected")
 
 	$YSort/Professor.navigator = $Navigation2D
 	$YSort/Professor.loop_poinst = assemble_navi_points()

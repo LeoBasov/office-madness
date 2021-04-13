@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Worker.gd" type="Script" id=1]
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://actors/worker/Walk.gd" type="Script" id=12]
 [ext_resource path="res://actors/worker/Ord.gd" type="Script" id=13]
 [ext_resource path="res://assets/graphic/orb_grey.png" type="Texture" id=14]
+[ext_resource path="res://actors/worker/Work.gd" type="Script" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -47,6 +48,9 @@ script = ExtResource( 10 )
 [node name="BoredTimer" type="Timer" parent="FSM/Idle" index="0"]
 wait_time = 5.0
 one_shot = true
+
+[node name="Work" type="Node" parent="FSM" index="2"]
+script = ExtResource( 15 )
 
 [node name="SelectIcon" type="AnimatedSprite" parent="." index="1"]
 position = Vector2( 0, -18 )
