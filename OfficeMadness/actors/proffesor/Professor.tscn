@@ -15,7 +15,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17, 25 )
 
-[node name="Professor" instance=ExtResource( 1 )]
+[node name="Professor" groups=[
+"proffesor",
+] instance=ExtResource( 1 )]
 frames = ExtResource( 11 )
 script = ExtResource( 2 )
 
