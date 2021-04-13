@@ -13,6 +13,7 @@ func initialize():
 	$IdeaBulbTimer.start()
 	$Effect.object = actor.get_node("IdeaBulb")
 	$Effect.effect_type = $Effect.Type.BLINCK
+	$AnimationIdea.play("Idea")
 	
 func execute(delta):
 	return return_state
