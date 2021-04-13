@@ -31,3 +31,9 @@ func _on_Area2D_mouse_exited():
 	mouse_over = false
 	$Effect.reset()
 
+func _on_object_selected(object):
+	if selected:
+		var pos = object.position
+		
+		pos.y -= 50
+		navigate(pos)

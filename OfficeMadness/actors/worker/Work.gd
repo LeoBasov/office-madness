@@ -12,11 +12,3 @@ func execute(delta):
 	var direction = actor._move(delta, speed)
 	
 	return return_state
-
-func _on_object_selected(object):
-	if actor.selected:
-		var pos = object.position
-		
-		pos.y -= 50
-		return_state = state_list.State.WORK
-		actor.navigate(pos)

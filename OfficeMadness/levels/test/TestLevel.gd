@@ -32,7 +32,7 @@ func _ready():
 		worker.set_sprite_frames(worker_frames[anim_sprite_rand_nr])
 		
 		for object in objects:
-			object.connect("selected", worker.get_node("FSM").get_node("Work"), "_on_object_selected")
+			object.connect("selected", worker, "_on_object_selected")
 
 	$YSort/Professor.navigator = $Navigation2D
 	$YSort/Professor.loop_poinst = assemble_navi_points()
