@@ -29,5 +29,9 @@ func _on_Area2D_area_entered(area):
 		emit_signal("add_worker", true)
 
 func _on_Area2D_area_exited(area):
-	if area.get_owner().is_in_group("workers"):
+	if !area:
+		emit_signal("add_worker", false)
+	elif !area.get_owner():
+		emit_signal("add_worker", false)
+	elif area.get_owner().is_in_group("workers"):
 		emit_signal("add_worker", false)

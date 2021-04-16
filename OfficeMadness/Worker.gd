@@ -41,3 +41,7 @@ func _on_object_selected(object):
 		pos.y -= 50
 		navigate(pos)
 		$FSM/Walk.work = true
+
+
+func _on_Ord_dead():
+	queue_free()

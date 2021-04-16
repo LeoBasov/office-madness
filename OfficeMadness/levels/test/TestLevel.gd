@@ -2,6 +2,10 @@ extends Node
 
 var rng = RandomNumberGenerator.new()
 
+func _process(delta):
+	if !get_tree().get_nodes_in_group("workers").size():
+		get_tree().quit()
+
 func assemble_navi_points():
 	var points = []
 	

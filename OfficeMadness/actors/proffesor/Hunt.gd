@@ -19,11 +19,18 @@ func initialize():
 	
 	hunt_worker = actor.worker_list[rand_nr]
 	
-func execute(delta):
-	actor._navigate(hunt_worker.position)
-	var direction = actor._move(delta, speed)
+	while !hunt_worker:
+		rand_nr = rng.randi_range(0, actor.worker_list.size() - 1)
+		hunt_worker = actor.worker_list[rand_nr]
 	
-	if !direction.length():
+func execute(delta):
+	if hunt_worker:
+		actor._navigate(hunt_worker.position)
+		var direction = actor._move(delta, speed)
+	
+		if !direction.length():
+			return_state = state_list.State.LOOP
+	else:
 		return_state = state_list.State.LOOP
 	
 	return return_state

@@ -1,5 +1,7 @@
 extends Sprite
 
+signal dead
+
 var lifes : int = 3
 
 func _ready():
@@ -16,3 +18,6 @@ func _on_Area2D_area_entered(area):
 			lifes -= 1
 		elif lifes == 1:
 			modulate = Color(1, 0, 0)
+			lifes -= 1
+		elif lifes == 0:
+			emit_signal("dead")
