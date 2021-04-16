@@ -4,6 +4,7 @@ var mouse_over : bool = false
 var selected : bool = false
 
 signal selected(value)
+signal add_worker(value)
 
 func _ready():
 	$Effect.object = self
@@ -22,3 +23,11 @@ func _on_Area2D_mouse_entered():
 func _on_Area2D_mouse_exited():
 	mouse_over = false
 	$Effect.reset()
+
+func _on_Area2D_area_entered(area):
+	if area.get_owner().is_in_group("workers"):
+		emit_signal("add_worker", true)
+
+func _on_Area2D_area_exited(area):
+	if area.get_owner().is_in_group("workers"):
+		emit_signal("add_worker", false)

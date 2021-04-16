@@ -8,8 +8,8 @@ func _process(delta):
 	value += delta*speed
 	$HBoxContainer/TextureProgress.value = value
 
-func _on_worker_add():
-	speed += increment
-
-func _on_worker_remove():
-	speed -= increment
+func _on_worker_add(value):
+	if value:
+		speed += increment
+	else:
+		speed -= increment

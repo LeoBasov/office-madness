@@ -39,5 +39,5 @@ func _on_object_selected(object):
 		var pos = object.position
 		
 		pos.y -= 50
-		emit_signal("add_worker")
 		navigate(pos)
+		$FSM/Walk.work = true

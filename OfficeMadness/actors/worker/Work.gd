@@ -6,7 +6,7 @@ var return_state = null
 var speed : float = 100
 
 func initialize():
-	return_state = state_list.State.WORK
+	return_state = state_list.State.IDLE
 	
 func execute(delta):
 	var direction = actor._move(delta, speed)

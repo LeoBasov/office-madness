@@ -109,5 +109,7 @@ position = Vector2( 0, -3 )
 shape = SubResource( 3 )
 
 [node name="Effect" parent="." instance=ExtResource( 2 )]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
