@@ -2,6 +2,7 @@ extends Node2D
 
 var mouse_over : bool = false
 var selected : bool = false
+var occupied : bool = false
 
 signal selected(value)
 signal add_worker(value)
@@ -17,7 +18,7 @@ func _input(event):
 func _on_Area2D_mouse_entered():
 	mouse_over = true
 	
-	if !selected:
+	if !selected and !occupied:
 		$Effect.effect_type = $Effect.Type.BLINCK
 
 func _on_Area2D_mouse_exited():
@@ -26,12 +27,11 @@ func _on_Area2D_mouse_exited():
 
 func _on_Area2D_area_entered(area):
 	if area.get_owner().is_in_group("workers"):
+		occupied = true
+		$Effect.reset()
 		emit_signal("add_worker", true)
 
 func _on_Area2D_area_exited(area):
-	if !area:
-		emit_signal("add_worker", false)
-	elif !area.get_owner():
-		emit_signal("add_worker", false)
-	elif area.get_owner().is_in_group("workers"):
+	if area.get_owner().is_in_group("workers"):
+		occupied = false
 		emit_signal("add_worker", false)
