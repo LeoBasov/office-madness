@@ -52,7 +52,13 @@ margin_bottom = 580.0
 alignment = 2
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 957.0
+margin_left = 870.0
+margin_right = 935.0
+margin_bottom = 20.0
+text = "Action 1"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 939.0
 margin_right = 1004.0
 margin_bottom = 20.0
-text = "Press"
+text = "Action 2"

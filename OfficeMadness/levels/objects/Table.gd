@@ -36,7 +36,13 @@ func _on_Area2D_area_entered(area):
 			emit_signal("add_worker", true)
 
 func _on_Area2D_area_exited(area):
-	if area.get_owner().is_in_group("workers"):
+	if !area.get_owner():
+		counter -= 1
+		
+		if counter == 0:
+			occupied = false
+			emit_signal("add_worker", false)
+	elif area.get_owner().is_in_group("workers"):
 		counter -= 1
 		
 		if counter == 0:
