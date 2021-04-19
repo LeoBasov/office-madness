@@ -53,6 +53,7 @@ one_shot = true
 script = ExtResource( 15 )
 
 [node name="SelectIcon" type="AnimatedSprite" parent="." index="1"]
+visible = false
 position = Vector2( 0, -18 )
 z_index = 1
 frames = SubResource( 1 )
@@ -70,7 +71,7 @@ position = Vector2( 0.5, 5 )
 shape = SubResource( 2 )
 
 [node name="Ord" type="Sprite" parent="." index="4"]
-position = Vector2( 0, -12 )
+position = Vector2( 0, -14 )
 texture = ExtResource( 14 )
 script = ExtResource( 13 )
 [connection signal="animation_finished" from="." to="FSM/Idle" method="_on_Worker_animation_finished"]
