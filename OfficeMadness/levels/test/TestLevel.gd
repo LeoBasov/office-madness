@@ -42,3 +42,7 @@ func _ready():
 	$YSort/Professor.navigator = $Navigation2D
 	$YSort/Professor.loop_poinst = assemble_navi_points()
 	$YSort/Professor.worker_list = workers
+
+
+func _on_UI_finished():
+	get_tree().quit()
