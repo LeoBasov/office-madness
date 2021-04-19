@@ -3,6 +3,7 @@ extends Node2D
 var mouse_over : bool = false
 var selected : bool = false
 var occupied : bool = false
+var counter : int = 0
 
 signal selected(value)
 signal add_worker(value)
@@ -27,11 +28,17 @@ func _on_Area2D_mouse_exited():
 
 func _on_Area2D_area_entered(area):
 	if area.get_owner().is_in_group("workers"):
-		occupied = true
-		$Effect.reset()
-		emit_signal("add_worker", true)
+		counter += 1
+		
+		if !occupied:
+			occupied = true
+			$Effect.reset()
+			emit_signal("add_worker", true)
 
 func _on_Area2D_area_exited(area):
 	if area.get_owner().is_in_group("workers"):
-		occupied = false
-		emit_signal("add_worker", false)
+		counter -= 1
+		
+		if counter == 0:
+			occupied = false
+			emit_signal("add_worker", false)
