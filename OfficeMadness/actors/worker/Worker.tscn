@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Worker.gd" type="Script" id=1]
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=2]
@@ -12,8 +12,6 @@
 [ext_resource path="res://actors/worker/WorkerIdle.gd" type="Script" id=10]
 [ext_resource path="res://actors/worker/FSM.gd" type="Script" id=11]
 [ext_resource path="res://actors/worker/Walk.gd" type="Script" id=12]
-[ext_resource path="res://actors/worker/Ord.gd" type="Script" id=13]
-[ext_resource path="res://assets/graphic/orb_grey.png" type="Texture" id=14]
 [ext_resource path="res://actors/worker/Work.gd" type="Script" id=15]
 [ext_resource path="res://assets/graphic/Box_expl_sheet.png" type="Texture" id=16]
 
@@ -40,9 +38,45 @@ region = Rect2( 32, 0, 32, 32 )
 atlas = ExtResource( 16 )
 region = Rect2( 64, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 16 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 16 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 16 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 16 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 16 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 16 )
+region = Rect2( 64, 0, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "angry",
 "speed": 12.0
@@ -90,20 +124,15 @@ max_mod = 0.7
 position = Vector2( 0.5, 5 )
 shape = SubResource( 2 )
 
-[node name="Ord" type="Sprite" parent="." index="4"]
-position = Vector2( 0, -14 )
-texture = ExtResource( 14 )
-script = ExtResource( 13 )
-
-[node name="Reaction" type="AnimatedSprite" parent="." index="5"]
+[node name="Reaction" type="AnimatedSprite" parent="." index="4"]
 position = Vector2( 0, -14 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 6 )
 animation = "angry"
-frame = 1
+frame = 11
 [connection signal="animation_finished" from="." to="FSM/Idle" method="_on_Worker_animation_finished"]
 [connection signal="timeout" from="FSM/Idle/BoredTimer" to="FSM/Idle" method="_on_BoredTimer_timeout"]
-[connection signal="area_entered" from="Area2D" to="Ord" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="dead" from="Ord" to="." method="_on_Ord_dead"]
+[connection signal="animation_finished" from="Reaction" to="." method="_on_Reaction_animation_finished"]
