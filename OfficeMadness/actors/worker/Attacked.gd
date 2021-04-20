@@ -9,6 +9,9 @@ func initialize():
 	actor.get_node("Reaction").play()
 	actor.get_node("Reaction").show()
 	
+	actor.animation = "idle_down"
+	actor.play()
+	
 	return_state = state_list.State.ATTACKED
 	
 func execute(delta):
