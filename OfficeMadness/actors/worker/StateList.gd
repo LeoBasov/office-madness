@@ -1,3 +1,3 @@
 extends Node
 
-enum State {IDLE, WALK, WORK}
+enum State {IDLE, WALK, WORK, ATTACKED}

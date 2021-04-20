@@ -6,6 +6,7 @@ func _ready():
 	states[state_list.State.IDLE] = $Idle
 	states[state_list.State.WALK] = $Walk
 	states[state_list.State.WORK] = $Work
+	states[state_list.State.ATTACKED] = $Attacked
 	
 	current_state = state_list.State.IDLE
 	
