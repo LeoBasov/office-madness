@@ -6,7 +6,16 @@ var return_state = null
 var speed : float = 100
 
 func initialize():
-	return_state = state_list.State.IDLE
+	actor.get_node("Reaction").play()
+	actor.get_node("Reaction").show()
+	
+	return_state = state_list.State.ATTACKED
 	
 func execute(delta):
 	return return_state
+
+func _on_Reaction_animation_finished():
+	actor.get_node("Reaction").stop()
+	actor.get_node("Reaction").hide()
+	
+	return_state = state_list.State.IDLE

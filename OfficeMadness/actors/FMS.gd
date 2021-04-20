@@ -15,3 +15,7 @@ func set_actor(new_actor):
 		state.actor = new_actor
 	
 	states[current_state].initialize()
+
+func set_state(new_state):
+	current_state = new_state
+	states[current_state].initialize()

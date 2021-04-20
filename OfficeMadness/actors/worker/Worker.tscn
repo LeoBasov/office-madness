@@ -139,4 +139,4 @@ frame = 11
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
-[connection signal="animation_finished" from="Reaction" to="." method="_on_Reaction_animation_finished"]
+[connection signal="animation_finished" from="Reaction" to="FSM/Attacked" method="_on_Reaction_animation_finished"]

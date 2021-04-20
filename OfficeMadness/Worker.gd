@@ -6,6 +6,7 @@ signal add_worker
 var mouse_over : bool = false
 var selected : bool = false
 var lifes : int = 3
+var state_list =  load("res://actors/worker/StateList.gd").new()
 
 func _ready():
 	._ready()
@@ -45,28 +46,19 @@ func _on_object_selected(object):
 		navigate(pos)
 		$FSM/Walk.work = true
 
-
 func _on_Ord_dead():
 	queue_free()
 
 func _on_Area2D_area_entered(area):
 	if area.get_owner().is_in_group("proffesor") and area.get_owner().get_node("FSM").current_state == area.get_owner().get_node("FSM").state_list.State.HUNT:
 		if lifes == 3:
-			$Reaction.play()
-			$Reaction.show()
+			$FSM.set_state(state_list.State.ATTACKED)
 			lifes -= 1
 		elif lifes == 2:
-			$Reaction.play()
-			$Reaction.show()
+			$FSM.set_state(state_list.State.ATTACKED)
 			lifes -= 1
 		elif lifes == 1:
-			$Reaction.play()
-			$Reaction.show()
+			$FSM.set_state(state_list.State.ATTACKED)
 			lifes -= 1
 		elif lifes == 0:
 			queue_free()
-
-
-func _on_Reaction_animation_finished():
-	$Reaction.hide()
-	$Reaction.stop()
