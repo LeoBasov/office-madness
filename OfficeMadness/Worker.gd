@@ -1,8 +1,5 @@
 extends "res://actors/Actor.gd"
 
-signal remove_worker
-signal add_worker
-
 var mouse_over : bool = false
 var selected : bool = false
 var lifes : int = 2
