@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Worker.gd" type="Script" id=1]
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://actors/worker/Ord.gd" type="Script" id=13]
 [ext_resource path="res://assets/graphic/orb_grey.png" type="Texture" id=14]
 [ext_resource path="res://actors/worker/Work.gd" type="Script" id=15]
+[ext_resource path="res://assets/graphic/Box_expl_sheet.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,6 +27,26 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 11 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 16 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 16 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "angry",
+"speed": 12.0
+} ]
 
 [node name="Worker" groups=[
 "workers",
@@ -53,7 +74,6 @@ one_shot = true
 script = ExtResource( 15 )
 
 [node name="SelectIcon" type="AnimatedSprite" parent="." index="1"]
-visible = false
 position = Vector2( 0, -18 )
 z_index = 1
 frames = SubResource( 1 )
@@ -74,6 +94,13 @@ shape = SubResource( 2 )
 position = Vector2( 0, -14 )
 texture = ExtResource( 14 )
 script = ExtResource( 13 )
+
+[node name="Reaction" type="AnimatedSprite" parent="." index="5"]
+position = Vector2( 0, -14 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 6 )
+animation = "angry"
+frame = 1
 [connection signal="animation_finished" from="." to="FSM/Idle" method="_on_Worker_animation_finished"]
 [connection signal="timeout" from="FSM/Idle/BoredTimer" to="FSM/Idle" method="_on_BoredTimer_timeout"]
 [connection signal="area_entered" from="Area2D" to="Ord" method="_on_Area2D_area_entered"]

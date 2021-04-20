@@ -11,6 +11,9 @@ func _ready():
 	$SelectIcon.play()
 	$SelectIcon.hide()
 	
+	$Reaction.play()
+	$Reaction.hide()
+	
 	$Effect.object = self
 
 func _input(event):
