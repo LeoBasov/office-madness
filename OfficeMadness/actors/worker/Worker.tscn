@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Worker.gd" type="Script" id=1]
 [ext_resource path="res://actors/Actor.tscn" type="PackedScene" id=2]
@@ -15,6 +15,22 @@
 [ext_resource path="res://actors/worker/Attacked.gd" type="Script" id=13]
 [ext_resource path="res://actors/worker/Work.gd" type="Script" id=15]
 [ext_resource path="res://assets/graphic/Box_expl_sheet.png" type="Texture" id=16]
+
+[sub_resource type="Animation" id=16]
+resource_name = "level1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5, 0 ), Vector2( 5, 0 ), Vector2( -5, 0 ), Vector2( 5, 0 ), Vector2( -5, 0 ), Vector2( 5, 0 ) ]
+}
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -86,6 +102,7 @@ animations = [ {
 [node name="Worker" groups=[
 "workers",
 ] instance=ExtResource( 2 )]
+position = Vector2( 5, 0 )
 scale = Vector2( 2, 2 )
 frames = ExtResource( 7 )
 animation = "phone"
@@ -110,6 +127,9 @@ script = ExtResource( 15 )
 
 [node name="Attacked" type="Node" parent="FSM" index="3"]
 script = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FSM/Attacked" index="0"]
+anims/level1 = SubResource( 16 )
 
 [node name="SelectIcon" type="AnimatedSprite" parent="." index="1"]
 position = Vector2( 0, -18 )
@@ -136,6 +156,7 @@ animation = "angry"
 frame = 11
 [connection signal="animation_finished" from="." to="FSM/Idle" method="_on_Worker_animation_finished"]
 [connection signal="timeout" from="FSM/Idle/BoredTimer" to="FSM/Idle" method="_on_BoredTimer_timeout"]
+[connection signal="animation_finished" from="FSM/Attacked/AnimationPlayer" to="FSM/Attacked" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]
