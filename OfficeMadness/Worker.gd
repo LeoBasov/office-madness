@@ -5,7 +5,7 @@ signal add_worker
 
 var mouse_over : bool = false
 var selected : bool = false
-var lifes : int = 3
+var lifes : int = 2
 var state_list =  load("res://actors/worker/StateList.gd").new()
 
 func _ready():
@@ -51,10 +51,7 @@ func _on_Ord_dead():
 
 func _on_Area2D_area_entered(area):
 	if area.get_owner().is_in_group("proffesor") and area.get_owner().get_node("FSM").current_state == area.get_owner().get_node("FSM").state_list.State.HUNT:
-		if lifes == 3:
-			$FSM.set_state(state_list.State.ATTACKED)
-			lifes -= 1
-		elif lifes == 2:
+		if lifes == 2:
 			$FSM.set_state(state_list.State.ATTACKED)
 			lifes -= 1
 		elif lifes == 1:

@@ -24,6 +24,8 @@ func initialize():
 	reaction = true
 	animation = true
 	
+	actor.modulate = Color(1.0, 0.0, 0.0)
+	
 func execute(delta):
 	if animation:
 		actor.position += old_position
@@ -36,6 +38,8 @@ func execute(delta):
 func _on_Reaction_animation_finished():
 	actor.get_node("Reaction").stop()
 	actor.get_node("Reaction").hide()
+	
+	actor.modulate = Color(1.0, 1.0, 1.0)
 	
 	reaction = false
 
