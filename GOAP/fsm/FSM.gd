@@ -7,12 +7,12 @@ func _ready() -> void:
 	
 	for state in $States.get_children():
 		state.initialize(self)
-	
-func update() -> void:
+		
+func _process(delta: float) -> void:
 	var current_state = get_current_state()
 	
 	if current_state != null:
-		current_state.execute()
+		current_state.execute(delta)
 	
 func pop_state():
 	return state_stack.pop_front()
