@@ -3,6 +3,7 @@ extends Node
 var fsm : Node
 var world : Node
 var condition_state : Dictionary
+var action_stack : Array
 
 class Leaf:
 	var condition_state : Dictionary = {}
@@ -42,6 +43,22 @@ func _set_up() -> void:
 	pass
 #===============================================================================
 
+func _process(delta: float) -> void:
+	var current_action = get_current_action()
+	
+	if current_action != null:
+		current_action.execute(delta)
+	
+func pop_action():
+	return action_stack.pop_back()
+	
+func push_action(action):
+	if get_current_action() != action:
+		action_stack.push_back(action)
+	
+func get_current_action():
+	return action_stack[-1] if action_stack.size() > 0 else null
+
 func initialize(new_world : Node) -> void:
 	world = new_world
 	_set_up()
@@ -59,7 +76,7 @@ func _plan(goal_key, goal_value) -> void:
 	var root = _build_tree(goal_key, goal_value)
 	var path = _get_path(root)
 	
-	_set_up_fsm(path)
+	_set_up_action_stack(path)
 
 func _build_tree(goal_key, goal_value) -> Leaf:
 	var root = Leaf.new(condition_state)
@@ -123,11 +140,11 @@ func _get_path(root : Leaf):
 			
 	return paths[selected_path_id]
 
-func _set_up_fsm(path : ActionPath) -> void:
+func _set_up_action_stack(path : ActionPath) -> void:
 	var actions = path.actions
 	
-	fsm.state_stack.clear()
+	action_stack.clear()
 	actions.invert()
 
 	for action in actions:
-		fsm.push_state(action.get_fsm_state())
+		push_action(action)

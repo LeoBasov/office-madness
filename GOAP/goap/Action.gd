@@ -8,6 +8,10 @@ var fsm_state setget , get_fsm_state # states to be pushed to the FSM in executi
 
 # OVERRIDE THESE
 #===============================================================================
+func execute(delta : float) -> void:
+	# TD IMPLEMENT
+	pass
+
 func reset() -> void:
 	# TD IMPLEMENT
 	pass
@@ -17,10 +21,6 @@ func _setpt_up_preconditions() -> void:
 	pass
 
 func _setpt_up_effects() -> void:
-	# TD IMPLEMENT
-	pass
-	
-func _set_up_fsm_states() -> void:
 	# TD IMPLEMENT
 	pass
 #===============================================================================
@@ -36,7 +36,6 @@ func initialize(new_goap : Node) -> void:
 	
 	_setpt_up_preconditions()
 	_setpt_up_effects()
-	_set_up_fsm_states()
 	
 func get_fsm_state():
 	return fsm_state

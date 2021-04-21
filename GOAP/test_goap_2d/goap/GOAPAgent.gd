@@ -1,8 +1,5 @@
 extends "res://goap/GOAP.gd"
 
-var state_get_iron
-var state_get_axe
-
 func _ready() -> void:
 	set_fsm($Dwarf)
 
