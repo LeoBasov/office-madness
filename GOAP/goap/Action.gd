@@ -12,10 +12,6 @@ func reset() -> void:
 	# TD IMPLEMENT
 	pass
 
-func check_world_condition() -> bool:
-	# TD IMPLEMENT
-	return false
-
 func _setpt_up_preconditions() -> void:
 	# TD IMPLEMENT
 	pass

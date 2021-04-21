@@ -62,16 +62,13 @@ func _plan(goal_key, goal_value) -> void:
 	_set_up_fsm(path)
 
 func _build_tree(goal_key, goal_value) -> Leaf:
-	var availible_actions : Array = []
 	var root = Leaf.new(condition_state)
+	var actions = $Actions.get_children()
 	
-	for action in $Actions.get_children():
+	for action in actions:
 		action.reset()
 		
-		if action.check_world_condition():
-			availible_actions.push_back(action)
-		
-	_build_leaf(root, availible_actions, goal_key, goal_value)
+	_build_leaf(root, actions, goal_key, goal_value)
 	
 	return root
 
