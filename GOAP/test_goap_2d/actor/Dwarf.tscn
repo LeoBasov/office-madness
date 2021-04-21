@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actor_2d/Actor2d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test_goap_2d/actor/Dwarf.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://test_goap_2d/actor/AxeBreak.gd" type="Script" id=4]
 [ext_resource path="res://test_goap_2d/actor/GetAxe.gd" type="Script" id=5]
+[ext_resource path="res://test_goap_2d/assests/ore.png" type="Texture" id=6]
 [ext_resource path="res://test_goap_2d/actor/Walk.gd" type="Script" id=7]
 [ext_resource path="res://test_goap_2d/assests/axe.png" type="Texture" id=8]
 
@@ -24,4 +25,9 @@ script = ExtResource( 5 )
 texture = ExtResource( 3 )
 
 [node name="Axe" type="Sprite" parent="Actor" index="1"]
+position = Vector2( -4.24742, -14.1581 )
 texture = ExtResource( 8 )
+
+[node name="Ore" type="Sprite" parent="Actor" index="2"]
+position = Vector2( -22.6529, 19.8213 )
+texture = ExtResource( 6 )

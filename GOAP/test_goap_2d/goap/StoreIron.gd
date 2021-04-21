@@ -15,8 +15,11 @@ func execute(delta : float) -> void:
 		else:
 			goap.condition_state["stored_iron"] = true
 			goap.condition_state["has_iron"] = false
-			goap.fsm.pop_state()
 			goap.pop_action()
+			
+			goap.fsm.pop_state()
+			goap.fsm.get_node("Actor").get_node("Ore").hide()
+			
 	else:
 		target = get_tree().get_nodes_in_group("warehouses")[0]
 		walk_state.target = target.position

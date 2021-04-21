@@ -18,7 +18,9 @@ func execute(delta : float) -> void:
 			goap.condition_state["has_iron"] = true
 			goap.fsm.pop_state()
 			goap.pop_action()
+			
 			goap.fsm.axe_life -= 1
+			goap.fsm.get_node("Actor").get_node("Ore").show()
 			
 			if !goap.fsm.axe_life:
 				goap.condition_state["has_axe"] = false

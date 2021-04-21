@@ -7,6 +7,7 @@ func _ready() -> void:
 	push_state($States/Walk)
 	
 	$Actor/Axe.hide()
+	$Actor/Ore.hide()
 
 func set_world(world):
 	for state in $States.get_children():
