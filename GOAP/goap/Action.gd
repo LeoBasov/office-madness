@@ -3,7 +3,7 @@ extends Node
 var goap : Node
 var preconditions : Dictionary
 var effects : Dictionary
-var cost : float = 1.0
+var cost : float = 1.0 setget , get_cost
 var fsm_state setget , get_fsm_state # states to be pushed to the FSM in execution order
 
 # OVERRIDE THESE
@@ -28,6 +28,12 @@ func _set_up_fsm_states() -> void:
 	# TD IMPLEMENT
 	pass
 #===============================================================================
+
+# OVERRIDE THESE FOR DETAILED COST CALCULATION
+#-------------------------------------------------------------------------------
+func get_cost() -> float:
+	return cost
+#-------------------------------------------------------------------------------
 
 func initialize(new_goap : Node) -> void:
 	goap = new_goap
