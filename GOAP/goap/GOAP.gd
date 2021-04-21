@@ -124,11 +124,11 @@ func _get_path(root : Leaf):
 	return paths[selected_path_id]
 
 func _set_up_fsm(path : ActionPath) -> void:
+	var actions = path.actions
+	
 	fsm.state_stack.clear()
+	actions.invert()
 
-	for action in path.actions:
-		var states = action.get_fsm_states()
-		states.invert()
-		
-		for state in states:
+	for action in actions:
+		for state in action.get_fsm_states():
 			fsm.push_state(state)
