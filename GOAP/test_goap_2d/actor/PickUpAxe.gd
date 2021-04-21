@@ -8,7 +8,6 @@ func execute(delta : float) -> void:
 	fsm.get_node("States").get_node("Walk").target = get_tree().get_nodes_in_group("axe_stacks")[0].position
 	
 	fsm.pop_state()
-	fsm.push_state(fsm.get_node("States").get_node("Mine"))
 	fsm.push_state(fsm.get_node("States").get_node("Walk"))
 	
 	
