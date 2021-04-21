@@ -1,6 +1,6 @@
 extends "res://actor_2d/Actor2d.gd"
 
-var axe : bool = false
+var axe_life : int = 3
 
 func _ready() -> void:
 	._ready()
