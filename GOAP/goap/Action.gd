@@ -27,8 +27,12 @@ func check_goal(key, value) -> bool:
 		return false
 	
 func check_condition(condition_state : Dictionary) -> bool:
-	# TD IMPLEMENT
-	return false
+	var ret_val = true
+	
+	for key in preconditions.keys():
+		ret_val = ret_val and (condition_state[key] == preconditions[key])
+		
+	return ret_val
 	
 func check_world_condition() -> bool:
 	# TD IMPLEMENT

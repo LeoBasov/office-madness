@@ -34,7 +34,7 @@ func _set_up() -> void:
 
 func build_tree(goal_key, goal_value) -> void:
 	var availible_actions : Array = []
-	var leaf = Leaf.new(_set_up_condition_state())
+	var root = Leaf.new(_set_up_condition_state())
 	
 	for action in $Actions.get_children():
 		action.reset()
@@ -42,7 +42,7 @@ func build_tree(goal_key, goal_value) -> void:
 		if action.check_world_condition():
 			availible_actions.push_back(action)
 		
-	# TODO
+	_build_leaf(root, availible_actions, goal_key, goal_value)
 
 func _set_up_condition_state() -> Dictionary:
 	# TO IMPLEMENT
