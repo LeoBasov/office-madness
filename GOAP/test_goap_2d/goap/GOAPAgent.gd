@@ -6,8 +6,6 @@ var state_get_axe
 func _ready() -> void:
 	set_fsm($Dwarf)
 
-	
-
 func _set_up() -> void:
 	condition_state["has_axe"] = false
 	condition_state["has_iron"] = false
