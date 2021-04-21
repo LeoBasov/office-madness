@@ -29,6 +29,19 @@ class ActionPath:
 		self.total_cost = path.total_cost
 		self.actions = path.actions
 
+# OVERRIDE THESE
+#===============================================================================
+func _action_canceled():
+	# TO IMPLEMENT
+	pass
+
+func _set_up() -> void:
+	# TO IMPLEMENT
+	# set_ up FSM
+	# _set_up_condition_state
+	pass
+#===============================================================================
+
 func initialize(new_world_state : Node) -> void:
 	world_state = new_world_state
 	_set_up()
@@ -47,16 +60,6 @@ func _plan(goal_key, goal_value) -> void:
 	var path = _get_path(root)
 	
 	_set_up_fsm(path)
-	
-func _action_canceled():
-	# TO IMPLEMENT
-	pass
-
-func _set_up() -> void:
-	# TO IMPLEMENT
-	# set_ up FSM
-	# _set_up_condition_state
-	pass
 
 func _build_tree(goal_key, goal_value) -> Leaf:
 	var availible_actions : Array = []
