@@ -30,6 +30,10 @@ func _ready() -> void:
 func initialize(new_world_state : Node) -> void:
 	world_state = new_world_state
 	_set_up()
+	
+func _plan(goal_key, goal_value) -> void:
+	var root = _build_tree(goal_key, goal_value)
+	var path = _get_path(root)
 
 func _set_up() -> void:
 	# TO IMPLEMENT
@@ -37,7 +41,7 @@ func _set_up() -> void:
 	# _set_up_condition_state
 	pass
 
-func _build_tree(goal_key, goal_value) -> void:
+func _build_tree(goal_key, goal_value) -> Leaf:
 	var availible_actions : Array = []
 	var root = Leaf.new(condition_state)
 	
@@ -48,6 +52,8 @@ func _build_tree(goal_key, goal_value) -> void:
 			availible_actions.push_back(action)
 		
 	_build_leaf(root, availible_actions, goal_key, goal_value)
+	
+	return root
 
 func _build_leaf(parent : Leaf, availible_actions : Array, goal_key, goal_value) -> void:
 	for action in availible_actions:
@@ -78,3 +84,21 @@ func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
 			new_path.valid = leaf.goal_reached
 			
 			_get_paths(leaf.children[i], new_path, paths)
+
+func _get_path(root : Leaf):
+	var paths = []
+	var path = ActionPath.new()
+	var cost : float = 0.0
+	var selected_path_id : int = 0
+	
+	paths.push_back(path)
+	_get_paths(root, path, paths)
+	
+	cost = path.total_cost
+	
+	for i in range(paths.size()):
+		if paths[i].total_cost < cost:
+			selected_path_id = i
+			cost = paths[i].total_cost
+			
+	return paths[selected_path_id]
