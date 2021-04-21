@@ -4,3 +4,5 @@
 
 [node name="GOAP" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Actions" type="Node" parent="."]
