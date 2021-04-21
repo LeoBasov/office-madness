@@ -2,10 +2,12 @@ extends "res://goap/Action.gd"
 
 var target = null
 var walk_state
+var get_axe_state
 
 func reset() -> void:
 	target = null
 	walk_state = goap.fsm.get_node("States").get_node("Walk")
+	get_axe_state = goap.fsm.get_node("States").get_node("GetAxe")
 
 func execute(delta : float) -> void:
 	if target:
@@ -14,8 +16,8 @@ func execute(delta : float) -> void:
 			goap.fsm.push_state(walk_state)
 		else:
 			goap.condition_state["has_axe"] = true
-			goap.fsm.get_node("Actor").get_node("Axe").show()
 			goap.fsm.pop_state()
+			goap.fsm.push_state(get_axe_state)
 			goap.pop_action()
 	else:
 		target = get_tree().get_nodes_in_group("axe_stacks")[0]

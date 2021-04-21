@@ -1,6 +1,5 @@
 extends "res://actor_2d/State2d.gd"
 
-var world
 var target : Vector2
 var speed : float = 1.0
 
