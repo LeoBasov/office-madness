@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 		current_state.execute(delta)
 	
 func pop_state():
-	return state_stack.pop_front()
+	return state_stack.pop_back()
 	
 func push_state(state):
 	if get_current_state() != state:

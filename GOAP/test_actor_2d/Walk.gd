@@ -10,5 +10,5 @@ func execute(delta : float) -> void:
 	actor.position += Vector2(1.0, 1.0)
 	
 	if actor.position.x > 150:
-		fsm.push_state(idle_state)
 		fsm.pop_state()
+		fsm.push_state(idle_state)
