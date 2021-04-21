@@ -23,6 +23,11 @@ class ActionPath:
 	var valid : bool = false
 	var total_cost : float = 0.0
 	var actions : Array = []
+	
+	func copy(path) -> void:
+		self.valid = path.valid
+		self.total_cost = path.total_cost
+		self.actions = path.actions
 
 func _ready() -> void:
 	for action in $Actions.get_children():
@@ -81,6 +86,7 @@ func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
 			_get_paths(leaf.children[i], path, paths)
 		else:
 			var new_path = ActionPath.new()
+			new_path.copy(path)
 			
 			paths.push_back(new_path)
 			
