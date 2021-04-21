@@ -35,6 +35,8 @@ func initialize(new_world_state : Node) -> void:
 func _plan(goal_key, goal_value) -> void:
 	var root = _build_tree(goal_key, goal_value)
 	var path = _get_path(root)
+	
+	_set_up_fsm(path)
 
 func _set_up() -> void:
 	# TO IMPLEMENT
@@ -105,3 +107,10 @@ func _get_path(root : Leaf):
 			cost = paths[i].total_cost
 			
 	return paths[selected_path_id]
+
+func _set_up_fsm(path : ActionPath) -> void:
+	fsm.state_stack.clear()
+
+	for action in path.actions:
+		for state in action.get_fsm_states().invert():
+			fsm.push_state(state)
