@@ -130,5 +130,4 @@ func _set_up_fsm(path : ActionPath) -> void:
 	actions.invert()
 
 	for action in actions:
-		for state in action.get_fsm_states():
-			fsm.push_state(state)
+		fsm.push_state(action.get_fsm_state())
