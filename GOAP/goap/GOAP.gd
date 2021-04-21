@@ -48,6 +48,8 @@ func _process(delta: float) -> void:
 	
 	if current_action != null:
 		current_action.execute(delta)
+		
+	fsm.update(delta)
 	
 func pop_action():
 	return action_stack.pop_back()

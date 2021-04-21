@@ -19,8 +19,6 @@ func execute(delta : float) -> void:
 	else:
 		target = get_tree().get_nodes_in_group("fields")[0]
 		walk_state.target = target.position
-	
-	goap.fsm.update(delta)
 
 func _setpt_up_preconditions() -> void:
 	preconditions["has_axe"] = true
