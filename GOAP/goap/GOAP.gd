@@ -76,8 +76,8 @@ func set_fsm(new_fsm):
 	for state in fsm.get_node("States").get_children():
 		state.connect("canceled", self, "_action_canceled")
 	
-func _plan(goal_key, goal_value) -> void:
-	var root = _build_tree(goal_key, goal_value)
+func _plan(new_goal_key, new_goal_value) -> void:
+	var root = _build_tree(new_goal_key, new_goal_value)
 	var path = _get_path(root)
 	
 	_set_up_action_stack(path)
@@ -104,7 +104,13 @@ func _build_leaf(parent : Leaf, availible_actions : Array, goal_key, goal_value)
 			if action.check_goal(goal_key, goal_value):
 				leaf.goal_reached = true
 			else:
-				_build_leaf(leaf, availible_actions, goal_key, goal_value)
+				var new_actions = []
+				
+				for new_action in availible_actions:
+					if new_action != action:
+						new_actions.push_back(new_action)
+				
+				_build_leaf(leaf, new_actions, goal_key, goal_value)
 
 func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
 	for i in range(leaf.children.size()):

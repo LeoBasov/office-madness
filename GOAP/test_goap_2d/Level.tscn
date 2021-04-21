@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://test_goap_2d/assests/field.png" type="Texture" id=1]
 [ext_resource path="res://test_goap_2d/assests/axe_stack.png" type="Texture" id=2]
 [ext_resource path="res://test_goap_2d/goap/GOAPAgent.tscn" type="PackedScene" id=3]
 [ext_resource path="res://test_goap_2d/Level.gd" type="Script" id=4]
+[ext_resource path="res://test_goap_2d/assests/warehouse.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.324, 32.1022 )
@@ -35,5 +36,11 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 shape = SubResource( 2 )
+
+[node name="Warehouse" type="Sprite" parent="." groups=[
+"warehouses",
+]]
+position = Vector2( 304.676, 94.1802 )
+texture = ExtResource( 5 )
 
 [node name="GOAPAgent" parent="." instance=ExtResource( 3 )]
