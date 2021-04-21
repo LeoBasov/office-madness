@@ -5,9 +5,8 @@ var state_stack : Array
 func _ready() -> void:
 	state_stack = []
 	
-	for state in get_tree().get_nodes_in_group("states"):
-		if is_a_parent_of (state):
-			state.initialize(self)
+	for state in $States.get_children():
+		state.initialize(self)
 	
 func update() -> void:
 	var current_state = get_current_state()
