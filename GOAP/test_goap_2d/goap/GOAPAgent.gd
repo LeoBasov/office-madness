@@ -4,11 +4,7 @@ var state_get_iron
 var state_get_axe
 
 func _ready() -> void:
-	._ready()	
 	set_fsm($Dwarf)
-	
-	state_get_iron = $Dwarf/States/Mine
-	state_get_axe = $Dwarf/States/PickUpAxe
 
 	$Dwarf/States/Walk.target = Vector2(100, 100)
 

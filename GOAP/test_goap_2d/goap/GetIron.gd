@@ -10,4 +10,4 @@ func _setpt_up_effects() -> void:
 	effects["has_iron"] = true
 	
 func _set_up_fsm_states() -> void:
-	fsm_states = [goap.state_get_iron]
+	fsm_states = [goap.fsm.get_node("States").get_node("Mine")]

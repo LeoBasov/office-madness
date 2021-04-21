@@ -29,16 +29,15 @@ class ActionPath:
 		self.total_cost = path.total_cost
 		self.actions = path.actions
 
-func _ready() -> void:
-	for action in $Actions.get_children():
-		action.initialize(self)
-
 func initialize(new_world_state : Node) -> void:
 	world_state = new_world_state
 	_set_up()
 	
 func set_fsm(new_fsm):
 	fsm = new_fsm
+	
+	for action in $Actions.get_children():
+		action.initialize(self)
 	
 	for state in fsm.get_node("States").get_children():
 		state.connect("canceled", self, "_action_canceled")
@@ -128,5 +127,8 @@ func _set_up_fsm(path : ActionPath) -> void:
 	fsm.state_stack.clear()
 
 	for action in path.actions:
-		for state in action.get_fsm_states().invert():
+		var states = action.get_fsm_states()
+		states.invert()
+		
+		for state in states:
 			fsm.push_state(state)
