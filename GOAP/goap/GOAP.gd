@@ -10,7 +10,9 @@ func _ready() -> void:
 
 func initialize(new_world_state : Node) -> void:
 	world_state = new_world_state
-	_set_up_condition_state()
+	_set_up()
 
-func _set_up_condition_state() -> void:
+func _set_up() -> void:
+	#set up condition state
+	#set_ up FSM
 	pass
