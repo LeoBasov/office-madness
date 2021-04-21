@@ -4,6 +4,8 @@ var fsm : Node
 var world : Node
 var condition_state : Dictionary
 var action_stack : Array
+var goal_key
+var goal_value
 
 class Leaf:
 	var condition_state : Dictionary = {}
@@ -11,14 +13,14 @@ class Leaf:
 	var action
 	var goal_reached = false
 	
-	func _init(condition_state : Dictionary) -> void:
-		self.condition_state = condition_state.duplicate(true)
+	func _init(new_condition_state : Dictionary) -> void:
+		self.condition_state = new_condition_state.duplicate(true)
 		
-	func add_action(action) -> void:
-		for key in action.effects.keys():
-			self.condition_state[key] = action.effects[key]
+	func add_action(new_action) -> void:
+		for key in new_action.effects.keys():
+			self.condition_state[key] = new_action.effects[key]
 	
-		self.action = action
+		self.action = new_action
 		
 class ActionPath:
 	var valid : bool = false
@@ -48,8 +50,8 @@ func _process(delta: float) -> void:
 	
 	if current_action != null:
 		current_action.execute(delta)
-		
-	fsm.update(delta)
+	else:
+		_plan(goal_key, goal_value)
 	
 func pop_action():
 	return action_stack.pop_back()

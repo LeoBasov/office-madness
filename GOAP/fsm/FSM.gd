@@ -8,7 +8,7 @@ func _ready() -> void:
 	for state in $States.get_children():
 		state.initialize(self)
 		
-func update(delta: float) -> void:
+func _process(delta: float) -> void:
 	var current_state = get_current_state()
 	
 	if current_state != null:
