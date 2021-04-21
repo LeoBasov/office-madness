@@ -5,7 +5,7 @@ var world_state : Node
 var condition_state : Dictionary
 
 class Leaf:
-	var condition_sate : Dictionary = {}
+	var condition_state : Dictionary = {}
 	var children : Array = []
 	var action
 	var goal_reached = false
@@ -37,11 +37,21 @@ func initialize(new_world_state : Node) -> void:
 	world_state = new_world_state
 	_set_up()
 	
+func set_fsm(new_fsm):
+	fsm = new_fsm
+	
+	for state in fsm.get_node("States").get_children():
+		state.connect("canceled", self, "_action_canceled")
+	
 func _plan(goal_key, goal_value) -> void:
 	var root = _build_tree(goal_key, goal_value)
 	var path = _get_path(root)
 	
 	_set_up_fsm(path)
+	
+func _action_canceled():
+	# TO IMPLEMENT
+	pass
 
 func _set_up() -> void:
 	# TO IMPLEMENT

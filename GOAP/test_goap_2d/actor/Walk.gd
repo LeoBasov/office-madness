@@ -8,3 +8,4 @@ func execute(delta : float) -> void:
 	
 	if (target - actor.position).length() <= speed:
 		fsm.pop_state()
+		emit_signal("canceled")

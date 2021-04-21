@@ -1,5 +1,7 @@
 extends Node
 
+signal canceled
+
 var fsm : Node
 
 func initialize(new_fsm :  Node) -> void:
