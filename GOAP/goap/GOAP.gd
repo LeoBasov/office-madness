@@ -1,7 +1,7 @@
 extends Node
 
 var fsm : Node
-var world_state : Node
+var world : Node
 var condition_state : Dictionary
 
 class Leaf:
@@ -42,8 +42,8 @@ func _set_up() -> void:
 	pass
 #===============================================================================
 
-func initialize(new_world_state : Node) -> void:
-	world_state = new_world_state
+func initialize(new_world : Node) -> void:
+	world = new_world
 	_set_up()
 	
 func set_fsm(new_fsm):
