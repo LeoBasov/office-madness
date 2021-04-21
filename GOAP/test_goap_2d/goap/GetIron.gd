@@ -25,7 +25,7 @@ func execute(delta : float) -> void:
 				goap.fsm.push_state(axe_break_state)
 				
 	else:
-		target = get_tree().get_nodes_in_group("fields")[0]
+		target = get_tree().get_nodes_in_group("mines")[0]
 		walk_state.target = target.position
 
 func _setpt_up_preconditions() -> void:
