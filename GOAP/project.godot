@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GOAP"
+run/main_scene="res://test_goap_2d/Level.tscn"
 config/icon="res://icon.png"
 
 [rendering]
