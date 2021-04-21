@@ -16,3 +16,7 @@ func _set_up() -> void:
 	#set up condition state
 	#set_ up FSM
 	pass
+
+func build_tree() -> void:
+	for action in $Actions.get_children():
+		action.reset()

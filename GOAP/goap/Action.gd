@@ -4,17 +4,36 @@ var goap : Node
 var preconditions : Dictionary
 var effects : Dictionary
 var cost : float = 1.0
+var fsm_states : Array setget , get_fsm_states # states to be pushed to the FSM in execution order
 
 func initialize(new_goap : Node) -> void:
+	goap = new_goap
+	
 	_setpt_up_preconditions()
 	_setpt_up_effects()
+	_set_up_fsm_states()
 	
-	goap = new_goap
+func get_fsm_states() -> Array:
+	return fsm_states
+	
+func reset() -> void:
+	# TD IMPLEMENT
+	pass
+	
+func check_condition(condition_state : Dictionary) -> bool:
+	# TD IMPLEMENT
+	return false
 
 func _setpt_up_preconditions() -> void:
+	# TD IMPLEMENT
 	pass
 
 func _setpt_up_effects() -> void:
+	# TD IMPLEMENT
+	pass
+	
+func _set_up_fsm_states() -> void:
+	# TD IMPLEMENT
 	pass
 
 func _add_precondition(key, value) -> void:
