@@ -27,10 +27,15 @@ script = ExtResource( 7 )
 [node name="Sleep" type="Node" parent="Actions" index="4"]
 script = ExtResource( 8 )
 
+[node name="Timer" type="Timer" parent="Actions/Sleep" index="0"]
+one_shot = true
+
 [node name="Dwarf" parent="." index="1" instance=ExtResource( 3 )]
 
 [node name="SleepTimer" type="Timer" parent="." index="2"]
 wait_time = 5.0
 one_shot = true
 
+[connection signal="awake" from="Actions/Sleep" to="." method="_on_Sleep_awake"]
+[connection signal="timeout" from="Actions/Sleep/Timer" to="Actions/Sleep" method="_on_Timer_timeout"]
 [connection signal="timeout" from="SleepTimer" to="." method="_on_SleepTimer_timeout"]
