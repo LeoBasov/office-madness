@@ -26,12 +26,32 @@ position = Vector2( 142.804, 128.753 )
 texture = ExtResource( 2 )
 script = ExtResource( 9 )
 
+[node name="Label" type="Label" parent="Stack"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -28.5904
+margin_top = 17.6588
+margin_right = 11.4096
+margin_bottom = 31.6588
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Warehouse" type="Sprite" parent="." groups=[
 "warehouses",
 ]]
 position = Vector2( 376.152, 99.2256 )
 texture = ExtResource( 5 )
 script = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Warehouse"]
+modulate = Color( 0.0235294, 0.0196078, 0.0196078, 1 )
+margin_right = 40.0
+margin_bottom = 14.0
+text = "asd"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="House" type="Sprite" parent="."]
 position = Vector2( 872, 428 )
