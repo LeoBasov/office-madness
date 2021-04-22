@@ -13,6 +13,8 @@ func execute(delta : float) -> void:
 			goap.fsm.pop_state()
 			goap.fsm.push_state(walk_state)
 		else:
+			goap.world.get_node("Warehouse").ore_amount += 1
+			
 			goap.condition_state["stored_iron"] = true
 			goap.condition_state["has_iron"] = false
 			goap.pop_action()
