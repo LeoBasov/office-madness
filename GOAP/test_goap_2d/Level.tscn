@@ -11,6 +11,7 @@
 [ext_resource path="res://test_goap_2d/Stack.gd" type="Script" id=9]
 
 [node name="Level" type="Node"]
+pause_mode = 2
 script = ExtResource( 4 )
 
 [node name="Mine" type="Sprite" parent="." groups=[
@@ -62,8 +63,10 @@ position = Vector2( 613.014, 93.3395 )
 texture = ExtResource( 7 )
 
 [node name="Miner" parent="." instance=ExtResource( 3 )]
+pause_mode = 1
 
 [node name="ClickTimer" type="Timer" parent="."]
+pause_mode = 1
 wait_time = 0.5
 one_shot = true
 

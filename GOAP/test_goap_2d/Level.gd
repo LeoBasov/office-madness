@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('ui_select'):
-		$Miner._action_canceled()
+		get_tree().paused = !get_tree().paused
 		
 	var text = ""
 	var stack = $Miner.action_stack.duplicate(true)

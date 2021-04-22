@@ -4,6 +4,9 @@ var target = null
 var walk_state
 var axe_break_state
 
+func _ready() -> void:
+	cost = 2
+
 func reset() -> void:
 	target = null
 	walk_state = goap.fsm.get_node("States").get_node("Walk")
