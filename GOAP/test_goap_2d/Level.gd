@@ -4,14 +4,14 @@ var ready : bool = true
 var Fiel = preload("res://test_goap_2d/level/Field.tscn")
 
 func _ready() -> void:
-	$GOAPAgent.initialize(self)
+	$Miner.initialize(self)
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('ui_select'):
-		$GOAPAgent._action_canceled()
+		$Miner._action_canceled()
 		
 	var text = ""
-	var stack = $GOAPAgent.action_stack.duplicate(true)
+	var stack = $Miner.action_stack.duplicate(true)
 	
 	stack.invert()
 	
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		text += action.name + "\n"
 		
 	$ActionStack.text = text
-	$Goal.text = $GOAPAgent.current_goal + " " + String($GOAPAgent.goals[$GOAPAgent.current_goal])
+	$Goal.text = $Miner.current_goal + " " + String($Miner.goals[$Miner.current_goal])
 
 func _input(event):
 	if event is InputEventMouseButton:
