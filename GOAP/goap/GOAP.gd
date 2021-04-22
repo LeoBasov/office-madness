@@ -71,11 +71,6 @@ func set_fsm(new_fsm):
 	
 	for action in $Actions.get_children():
 		action.initialize(self)
-	
-	for state in fsm.get_node("States").get_children():
-		state.connect("canceled", self, "_action_canceled")
-		
-	for action in $Actions.get_children():
 		action.connect("canceled", self, "_action_canceled")
 	
 func _plan(new_goal_key, new_goal_value) -> void:
