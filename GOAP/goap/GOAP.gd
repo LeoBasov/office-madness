@@ -51,7 +51,6 @@ func _process(delta: float) -> void:
 		current_action.execute(delta)
 	else:
 		_plan(goal_key, goal_value)
-		print(action_stack.size())
 	
 func pop_action():
 	return action_stack.pop_back()
