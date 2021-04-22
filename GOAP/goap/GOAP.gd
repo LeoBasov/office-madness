@@ -1,5 +1,7 @@
 extends Node
 
+signal goal_unreachable
+
 var fsm : Node
 var world : Node
 var condition_state : Dictionary
@@ -34,6 +36,10 @@ class ActionPath:
 # OVERRIDE THESE
 #===============================================================================
 func _action_canceled():
+	# TO IMPLEMENT
+	pass
+	
+func _goal_unreachable():
 	# TO IMPLEMENT
 	pass
 
@@ -146,6 +152,9 @@ func _get_path(root : Leaf):
 			if cost == null or paths[i].total_cost < cost:
 				selected_path_id = i
 				cost = paths[i].total_cost
+				
+	if selected_path_id == null:
+		emit_signal("goal_unreachable")
 			
 	return paths[selected_path_id]
 

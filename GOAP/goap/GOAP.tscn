@@ -6,3 +6,5 @@
 script = ExtResource( 1 )
 
 [node name="Actions" type="Node" parent="."]
+
+[connection signal="goal_unreachable" from="." to="." method="_goal_unreachable"]
