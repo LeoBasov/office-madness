@@ -26,6 +26,5 @@ func _action_canceled():
 
 
 func _on_SleepTimer_timeout() -> void:
-	print("SLEEP")
-	goal_key = "sleept"
+	goal_key = "sleep"
 	goal_value = true
