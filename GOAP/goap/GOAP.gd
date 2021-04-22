@@ -116,7 +116,7 @@ func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
 	for i in range(leaf.children.size()):
 		if i == 0:
 			path.total_cost += leaf.children[i].action.cost
-			path.valid = leaf.goal_reached
+			path.valid = leaf.children[i].goal_reached
 			path.actions.push_back(leaf.children[i].action)
 			
 			_get_paths(leaf.children[i], path, paths)
@@ -127,7 +127,7 @@ func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
 			paths.push_back(loc_path)
 			
 			loc_path.total_cost += leaf.children[i].action.cost
-			loc_path.valid = leaf.goal_reached
+			loc_path.valid = leaf.children[i].goal_reached
 			loc_path.actions.push_back(leaf.children[i].action)
 			
 			_get_paths(leaf.children[i], loc_path, paths)
@@ -135,18 +135,17 @@ func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
 func _get_path(root : Leaf):
 	var paths = []
 	var path = ActionPath.new()
-	var cost : float = 0.0
-	var selected_path_id : int = 0
+	var cost = null
+	var selected_path_id = null
 	
 	paths.push_back(path)
 	_get_paths(root, path, paths)
 	
-	cost = path.total_cost
-	
 	for i in range(paths.size()):
-		if paths[i].total_cost < cost:
-			selected_path_id = i
-			cost = paths[i].total_cost
+		if paths[i].valid:
+			if cost == null or paths[i].total_cost < cost:
+				selected_path_id = i
+				cost = paths[i].total_cost
 			
 	return paths[selected_path_id]
 
