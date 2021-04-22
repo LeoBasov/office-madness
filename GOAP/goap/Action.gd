@@ -43,10 +43,7 @@ func get_fsm_state():
 	return fsm_state
 	
 func check_goal(key, value) -> bool:
-	if effects.has(key) and effects[key] == value:
-		return true
-	else:
-		return false
+	return effects.has(key) and (effects[key] == value)
 	
 func check_condition(condition_state : Dictionary) -> bool:
 	var ret_val = true
