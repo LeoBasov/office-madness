@@ -26,6 +26,7 @@ func execute(delta : float) -> void:
 
 func _setpt_up_preconditions() -> void:
 	preconditions["has_iron"] = false
+	preconditions["has_axe"] = false
 
 func _setpt_up_effects() -> void:
 	effects["sleep"] = true
