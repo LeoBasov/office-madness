@@ -5,11 +5,18 @@ func _ready() -> void:
 	
 	goal_key = "stored_iron"
 	goal_value = true
+	
+func _process(delta: float) -> void:
+	if get_tree().get_nodes_in_group("fields"):
+		condition_state["has_fields"] = true
+	else:
+		condition_state["has_fields"] = false
 
 func _set_up() -> void:
 	condition_state["has_axe"] = false
 	condition_state["has_iron"] = false
 	condition_state["stored_iron"] = false
+	condition_state["has_fields"] = false
 
 func _action_canceled():
 	_plan(goal_key, goal_value)

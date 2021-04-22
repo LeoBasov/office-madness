@@ -1,5 +1,7 @@
 extends Node
 
+signal canceled
+
 var goap : Node
 var preconditions : Dictionary
 var effects : Dictionary
