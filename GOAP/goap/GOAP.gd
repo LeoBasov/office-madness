@@ -113,6 +113,9 @@ func _build_leaf(parent : Leaf, availible_actions : Array, goal_key, goal_value)
 				_build_leaf(leaf, new_actions, goal_key, goal_value)
 
 func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
+	var new_path = ActionPath.new()
+	new_path.copy(path)
+	
 	for i in range(leaf.children.size()):
 		if i == 0:
 			path.total_cost += leaf.children[i].action.cost
@@ -121,16 +124,16 @@ func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
 			
 			_get_paths(leaf.children[i], path, paths)
 		else:
-			var new_path = ActionPath.new()
-			new_path.copy(path)
+			var loc_path = ActionPath.new()
+			loc_path.copy(new_path)
 			
-			paths.push_back(new_path)
+			paths.push_back(loc_path)
 			
-			new_path.total_cost += leaf.children[i].action.cost
-			new_path.valid = leaf.goal_reached
-			new_path.actions.push_back(leaf.children[i].action)
+			loc_path.total_cost += leaf.children[i].action.cost
+			loc_path.valid = leaf.goal_reached
+			loc_path.actions.push_back(leaf.children[i].action)
 			
-			_get_paths(leaf.children[i], new_path, paths)
+			_get_paths(leaf.children[i], loc_path, paths)
 
 func _get_path(root : Leaf):
 	var paths = []
