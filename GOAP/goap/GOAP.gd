@@ -140,7 +140,7 @@ func _get_path(root : Leaf):
 	var paths = []
 	var path = ActionPath.new()
 	var cost = null
-	var selected_path_id = null
+	var selected_path_id : int = -1
 	
 	paths.push_back(path)
 	_get_paths(root, path, paths)
@@ -151,7 +151,7 @@ func _get_path(root : Leaf):
 				selected_path_id = i
 				cost = paths[i].total_cost
 				
-	if selected_path_id == null:
+	if selected_path_id < 0:
 		emit_signal("goal_unreachable")
 			
 	return paths[selected_path_id]
