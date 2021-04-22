@@ -28,9 +28,8 @@ class ActionPath:
 	var actions : Array = []
 	
 	func copy(path) -> void:
-		self.valid = path.valid
 		self.total_cost = path.total_cost
-		self.actions = path.actions
+		self.actions = path.actions.duplicate()
 
 # OVERRIDE THESE
 #===============================================================================
@@ -52,6 +51,7 @@ func _process(delta: float) -> void:
 		current_action.execute(delta)
 	else:
 		_plan(goal_key, goal_value)
+		print(action_stack.size())
 	
 func pop_action():
 	return action_stack.pop_back()
