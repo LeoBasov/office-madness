@@ -9,6 +9,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('ui_select'):
 		$GOAPAgent._action_canceled()
+		
+	var text = ""
+	var stack = $GOAPAgent.action_stack.duplicate(true)
+	
+	stack.invert()
+	
+	for action in stack:
+		text += action.name + "\n"
+		
+	$ActionStack.text = text
+	$Goal.text = $GOAPAgent.goal_key + " " + String($GOAPAgent.goal_value)
 
 func _input(event):
 	if event is InputEventMouseButton:

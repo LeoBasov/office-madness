@@ -17,6 +17,15 @@ func _set_up() -> void:
 	condition_state["has_iron"] = false
 	condition_state["stored_iron"] = false
 	condition_state["has_fields"] = false
+	condition_state["sleep"] = false
+	
+	$SleepTimer.start()
 
 func _action_canceled():
 	_plan(goal_key, goal_value)
+
+
+func _on_SleepTimer_timeout() -> void:
+	print("SLEEP")
+	goal_key = "sleept"
+	goal_value = true
