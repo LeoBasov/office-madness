@@ -17,13 +17,13 @@ script = ExtResource( 4 )
 [node name="Mine" type="Sprite" parent="." groups=[
 "mines",
 ]]
-position = Vector2( 336.676, 428.102 )
+position = Vector2( 511.582, 515.555 )
 texture = ExtResource( 1 )
 
 [node name="Stack" type="Sprite" parent="." groups=[
 "axe_stacks",
 ]]
-position = Vector2( 142.804, 128.753 )
+position = Vector2( 299.21, 508.837 )
 texture = ExtResource( 2 )
 script = ExtResource( 9 )
 
@@ -41,7 +41,7 @@ __meta__ = {
 [node name="Warehouse" type="Sprite" parent="." groups=[
 "warehouses",
 ]]
-position = Vector2( 376.152, 99.2256 )
+position = Vector2( 399.697, 81.5668 )
 texture = ExtResource( 5 )
 script = ExtResource( 8 )
 
@@ -59,7 +59,7 @@ position = Vector2( 872, 428 )
 texture = ExtResource( 6 )
 
 [node name="Wrough" type="Sprite" parent="."]
-position = Vector2( 613.014, 93.3395 )
+position = Vector2( 619.741, 73.158 )
 texture = ExtResource( 7 )
 
 [node name="Miner" parent="." instance=ExtResource( 3 )]
@@ -108,6 +108,17 @@ margin_top = 263.0
 margin_right = 957.0
 margin_bottom = 277.0
 text = "Goal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PossibleActions" type="Label" parent="."]
+margin_left = 3.36359
+margin_top = 303.563
+margin_right = 131.364
+margin_bottom = 334.563
+text = "POSSIBLE ACTIONS
+================"
 __meta__ = {
 "_edit_use_anchors_": false
 }
