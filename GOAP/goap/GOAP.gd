@@ -6,8 +6,8 @@ var fsm : Node
 var world : Node
 var condition_state : Dictionary
 var action_stack : Array
-var goal_key
-var goal_value
+var goals : Dictionary
+var current_goal
 
 class Leaf:
 	var condition_state : Dictionary = {}
@@ -35,10 +35,6 @@ class ActionPath:
 
 # OVERRIDE THESE
 #===============================================================================
-func _action_canceled():
-	# TO IMPLEMENT
-	pass
-	
 func _goal_unreachable():
 	# TO IMPLEMENT
 	pass
@@ -49,6 +45,8 @@ func _set_up() -> void:
 	# _set_up_condition_state
 	pass
 #===============================================================================
+func _action_canceled():
+	_plan()
 
 func _process(delta: float) -> void:
 	var current_action = get_current_action()
@@ -56,7 +54,7 @@ func _process(delta: float) -> void:
 	if current_action != null:
 		current_action.execute(delta)
 	else:
-		_plan(goal_key, goal_value)
+		_plan()
 	
 func pop_action():
 	return action_stack.pop_back()
@@ -79,24 +77,24 @@ func set_fsm(new_fsm):
 		action.initialize(self)
 		action.connect("canceled", self, "_action_canceled")
 	
-func _plan(new_goal_key, new_goal_value) -> void:
-	var root = _build_tree(new_goal_key, new_goal_value)
+func _plan() -> void:
+	var root = _build_tree()
 	var path = _get_path(root)
 	
 	_set_up_action_stack(path)
 
-func _build_tree(goal_key, goal_value) -> Leaf:
+func _build_tree() -> Leaf:
 	var root = Leaf.new(condition_state)
 	var actions = $Actions.get_children()
 	
 	for action in actions:
 		action.reset()
 		
-	_build_leaf(root, actions, goal_key, goal_value)
+	_build_leaf(root, actions)
 	
 	return root
 
-func _build_leaf(parent : Leaf, availible_actions : Array, goal_key, goal_value) -> void:
+func _build_leaf(parent : Leaf, availible_actions : Array) -> void:
 	for action in availible_actions:
 		if action.check_condition(parent.condition_state):
 			var leaf = Leaf.new(parent.condition_state)
@@ -104,7 +102,7 @@ func _build_leaf(parent : Leaf, availible_actions : Array, goal_key, goal_value)
 			leaf.add_action(action)
 			parent.children.push_back(leaf)
 			
-			if action.check_goal(goal_key, goal_value):
+			if action.check_goal(current_goal, goals[current_goal]):
 				leaf.goal_reached = true
 			else:
 				var new_actions = []
@@ -113,7 +111,7 @@ func _build_leaf(parent : Leaf, availible_actions : Array, goal_key, goal_value)
 					if new_action != action:
 						new_actions.push_back(new_action)
 				
-				_build_leaf(leaf, new_actions, goal_key, goal_value)
+				_build_leaf(leaf, new_actions)
 
 func _get_paths(leaf : Leaf, path : ActionPath, paths : Array) -> void:
 	var new_path = ActionPath.new()

@@ -3,8 +3,10 @@ extends "res://goap/GOAP.gd"
 func _ready() -> void:
 	set_fsm($Dwarf)
 	
-	goal_key = "stored_iron"
-	goal_value = true
+	goals["stored_iron"] = true
+	goals["sleep"] = true
+	
+	current_goal = "stored_iron"
 	
 func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("fields"):
@@ -21,17 +23,11 @@ func _set_up() -> void:
 	
 	$SleepTimer.start()
 
-func _action_canceled():
-	_plan(goal_key, goal_value)
-
 func _on_SleepTimer_timeout() -> void:
-	goal_key = "sleep"
-	goal_value = true
-
+	current_goal = "sleep"
 
 func _on_Sleep_awake() -> void:
-	goal_key = "stored_iron"
-	goal_value = true
+	current_goal = "stored_iron"
 	
-	_plan(goal_key, goal_value)
+	_plan()
 	$SleepTimer.start()

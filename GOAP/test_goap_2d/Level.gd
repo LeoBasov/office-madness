@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 		text += action.name + "\n"
 		
 	$ActionStack.text = text
-	$Goal.text = $GOAPAgent.goal_key + " " + String($GOAPAgent.goal_value)
+	$Goal.text = $GOAPAgent.current_goal + " " + String($GOAPAgent.goals[$GOAPAgent.current_goal])
 
 func _input(event):
 	if event is InputEventMouseButton:
