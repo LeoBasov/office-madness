@@ -13,8 +13,21 @@ func _process(delta: float) -> void:
 		condition_state["has_fields"] = true
 	else:
 		condition_state["has_fields"] = false
+		
+	if world.get_node("Warehouse").ore_amount:
+		condition_state["ore_availible"] = true
+	else:
+		condition_state["ore_availible"] = false
+		
+	if world.get_node("Stack").axe_amount:
+		condition_state["axe_availible"] = true
+	else:
+		condition_state["axe_availible"] = false
 
 func _set_up() -> void:
+	condition_state["axe_availible"] = false
+	condition_state["ore_availible"] = false
+	
 	condition_state["has_axe"] = false
 	condition_state["has_iron"] = false
 	condition_state["stored_iron"] = false

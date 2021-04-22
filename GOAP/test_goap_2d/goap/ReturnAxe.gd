@@ -15,6 +15,7 @@ func execute(delta : float) -> void:
 			goap.fsm.pop_state()
 			goap.fsm.push_state(walk_state)
 		else:
+			goap.world.get_node("Stack").axe_amount += 1
 			goap.condition_state["has_axe"] = false
 			goap.fsm.pop_state()
 			goap.fsm.push_state(axe_break_state)
