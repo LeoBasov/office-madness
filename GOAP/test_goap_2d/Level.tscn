@@ -122,5 +122,4 @@ text = "POSSIBLE ACTIONS
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="timeout" from="ClickTimer" to="." method="_on_ClickTimer_timeout"]

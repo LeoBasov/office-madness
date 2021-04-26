@@ -12,7 +12,7 @@ func execute(delta : float) -> void:
 		target = get_tree().get_nodes_in_group("fields")[0]
 		walk_state.target = target.position
 		
-		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed:
+		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed * delta:
 			goap.fsm.pop_state()
 			goap.fsm.push_state(walk_state)
 		else:

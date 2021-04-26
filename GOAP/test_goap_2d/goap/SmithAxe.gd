@@ -15,7 +15,7 @@ func execute(delta : float) -> void:
 		target = goap.world.get_node("Warehouse")
 		walk_state.target = target.position
 		
-		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed:
+		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed * delta:
 			goap.fsm.pop_state()
 			goap.fsm.push_state(walk_state)
 		else:
@@ -28,7 +28,7 @@ func execute(delta : float) -> void:
 		target = goap.world.get_node("Wrough")
 		walk_state.target = target.position
 		
-		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed:
+		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed * delta:
 			goap.fsm.pop_state()
 			goap.fsm.push_state(walk_state)
 		else:
