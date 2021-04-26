@@ -1,14 +1,12 @@
 extends "res://goap/Action.gd"
 
 var target = null
-var walk_state
 
 func _ready() -> void:
 	cost = 3
 
 func reset() -> void:
 	target = null
-	walk_state = goap.fsm.get_node("States").get_node("Walk")
 
 func execute(delta : float) -> void:
 	if goap.condition_state["ore_availible"] and !goap.condition_state["has_iron"]:
@@ -17,64 +15,32 @@ func execute(delta : float) -> void:
 		_smith(delta)
 	else:
 		emit_signal("canceled")
-	
-	if goap.world.get_node("Warehouse") and goap.condition_state["ore_availible"] == true and goap.condition_state["has_iron"] == false:
-		target = goap.world.get_node("Warehouse")
-		walk_state.target = target.position
-		
-		if !walk_state.is_in_range:
-			goap.fsm.pop_state()
-			goap.fsm.push_state(walk_state)
-		else:
-			goap.fsm.get_node("Actor").get_node("Ore").show()
-			goap.world.get_node("Warehouse").ore_amount -= 1
-			goap.condition_state["has_iron"] = true
-			goap.fsm.pop_state()
-		
-	elif goap.world.get_node("Wrough") and goap.condition_state["has_iron"] == true:
-		target = goap.world.get_node("Wrough")
-		walk_state.target = target.position
-		
-		if !walk_state.is_in_range:
-			goap.fsm.pop_state()
-			goap.fsm.push_state(walk_state)
-		else:
-			goap.fsm.get_node("Actor").get_node("Ore").hide()
-			goap.fsm.get_node("Actor").get_node("Axe").show()
-			goap.condition_state["has_iron"] = true
-			goap.condition_state["has_axe"] = true
-			goap.fsm.pop_state()
-			goap.pop_action()
-		
-	else:
-		emit_signal("canceled")
 		
 func _get_iron(delta : float) -> void:
 	if target == null and goap.world.get_node("Warehouse"):
 		target = goap.world.get_node("Warehouse")
-		walk_state.target = target.position
+		goap.fsm.target = target.position
 		
 	elif target and goap.world.get_node("Warehouse"):
-		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed * delta:
-			goap.fsm.pop_state()
-			goap.fsm.push_state(walk_state)
+		if !goap.fsm.is_in_range:
+			goap.fsm.move()
 		else:
 			goap.fsm.get_node("Actor").get_node("Ore").show()
 			goap.world.get_node("Warehouse").ore_amount -= 1
 			goap.condition_state["has_iron"] = true
 			goap.fsm.pop_state()
+			target = null
 	else:
 		emit_signal("canceled")
 	
 func _smith(delta : float) -> void:
 	if target == null and goap.world.get_node("Wrough"):
 		target = goap.world.get_node("Wrough")
-		walk_state.target = target.position
+		goap.fsm.target = target.position
 		
 	elif target and goap.world.get_node("Wrough"):
-		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed * delta:
-			goap.fsm.pop_state()
-			goap.fsm.push_state(walk_state)
+		if !goap.fsm.is_in_range:
+			goap.fsm.move()
 		else:
 			goap.fsm.get_node("Actor").get_node("Ore").hide()
 			goap.fsm.get_node("Actor").get_node("Axe").show()
@@ -82,6 +48,7 @@ func _smith(delta : float) -> void:
 			goap.condition_state["has_axe"] = true
 			goap.fsm.pop_state()
 			goap.pop_action()
+			target = null
 	else:
 		emit_signal("canceled")
 

@@ -6,20 +6,20 @@
 [ext_resource path="res://test_goap_2d/actor/AxeBreak.gd" type="Script" id=4]
 [ext_resource path="res://test_goap_2d/actor/GetAxe.gd" type="Script" id=5]
 [ext_resource path="res://test_goap_2d/assests/ore.png" type="Texture" id=6]
-[ext_resource path="res://test_goap_2d/actor/Walk.gd" type="Script" id=7]
 [ext_resource path="res://test_goap_2d/assests/axe.png" type="Texture" id=8]
+[ext_resource path="res://test_goap_2d/actor/Move.gd" type="Script" id=9]
 
 [node name="Dwarf" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Walk" type="Node" parent="States" index="0"]
-script = ExtResource( 7 )
-
-[node name="AxeBreak" type="Node" parent="States" index="1"]
+[node name="AxeBreak" type="Node" parent="States" index="0"]
 script = ExtResource( 4 )
 
-[node name="GetAxe" type="Node" parent="States" index="2"]
+[node name="GetAxe" type="Node" parent="States" index="1"]
 script = ExtResource( 5 )
+
+[node name="Move" parent="States" index="2"]
+script = ExtResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="Actor" index="0"]
 texture = ExtResource( 3 )
