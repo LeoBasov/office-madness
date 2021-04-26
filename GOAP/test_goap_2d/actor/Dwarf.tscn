@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://actor_2d/FSM2d.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fsm_2d/FSM2d.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test_goap_2d/actor/Dwarf.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://test_goap_2d/actor/AxeBreak.gd" type="Script" id=4]

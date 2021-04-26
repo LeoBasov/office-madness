@@ -1,4 +1,4 @@
-extends "res://actor_2d/State2d.gd"
+extends "res://fsm_2d/State2d.gd"
 
 var target : Vector2 setget set_target
 var speed : float = 200.0

@@ -1,4 +1,4 @@
-extends "res://actor_2d/Move.gd"
+extends "res://fsm_2d/Move.gd"
 
 func _is_in_range(delta : float) -> bool:
 	return (target - actor.position).length() < speed * delta

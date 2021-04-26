@@ -1,4 +1,4 @@
-extends "res://actor_2d/State2d.gd"
+extends "res://fsm_2d/State2d.gd"
 
 func execute(delta : float) -> void:
 	fsm.axe_life = 3
