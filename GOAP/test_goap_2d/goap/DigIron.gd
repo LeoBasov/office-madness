@@ -11,7 +11,7 @@ func execute(delta : float) -> void:
 	if target == null and get_tree().get_nodes_in_group("fields"):
 		target = get_tree().get_nodes_in_group("fields")[0]
 		walk_state.target = target.position
-	elif target:
+	elif target and get_tree().get_nodes_in_group("fields"):
 		if !walk_state.is_in_range:
 			goap.fsm.pop_state()
 			goap.fsm.push_state(walk_state)
