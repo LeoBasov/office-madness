@@ -6,7 +6,6 @@ var goap : Node
 var preconditions : Dictionary
 var effects : Dictionary
 var cost : float = 1.0 setget , get_cost
-var fsm_state setget , get_fsm_state # states to be pushed to the FSM in execution order
 
 # OVERRIDE THESE
 #===============================================================================
@@ -38,9 +37,6 @@ func initialize(new_goap : Node) -> void:
 	
 	_setpt_up_preconditions()
 	_setpt_up_effects()
-	
-func get_fsm_state():
-	return fsm_state
 	
 func check_goal(key, value) -> bool:
 	return effects.has(key) and (effects[key] == value)
