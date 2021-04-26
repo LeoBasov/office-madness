@@ -44,12 +44,17 @@ func _set_up() -> void:
 	# set_ up FSM
 	# _set_up_condition_state
 	pass
+	
+func _update_world_state() -> void:
+	# here checks of the world and its state happen
+	pass
 #===============================================================================
 func _action_canceled():
 	_plan()
 
 func _process(delta: float) -> void:
 	var current_action = get_current_action()
+	_update_world_state()
 	
 	if current_action != null:
 		current_action.execute(delta)

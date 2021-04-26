@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 	current_goal = "stored_iron"
 	
-func _process(delta: float) -> void:
+func _update_world_state() -> void:
 	if get_tree().get_nodes_in_group("fields"):
 		condition_state["has_fields"] = true
 	else:
@@ -44,3 +44,8 @@ func _on_Sleep_awake() -> void:
 	
 	_plan()
 	$SleepTimer.start()
+
+func _goal_unreachable():
+	for key in goals.keys():
+		current_goal = key
+		_plan()

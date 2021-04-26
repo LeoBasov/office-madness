@@ -43,6 +43,7 @@ script = ExtResource( 10 )
 [node name="SleepTimer" type="Timer" parent="." index="2"]
 wait_time = 20.0
 one_shot = true
+
 [connection signal="awake" from="Actions/Sleep" to="." method="_on_Sleep_awake"]
 [connection signal="timeout" from="Actions/Sleep/Timer" to="Actions/Sleep" method="_on_Timer_timeout"]
 [connection signal="timeout" from="SleepTimer" to="." method="_on_SleepTimer_timeout"]
