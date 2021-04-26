@@ -10,11 +10,11 @@ func reset() -> void:
 	walk_state = goap.fsm.get_node("States").get_node("Walk")
 
 func execute(delta : float) -> void:
-	if goap.world.get_node("House"):
+	if target == null and goap.world.get_node("House"):
 		target = goap.world.get_node("House")
 		walk_state.target = target.position
-		
-		if (target.position - goap.fsm.get_node("Actor").position).length() > walk_state.speed * delta:
+	elif target and goap.world.get_node("House"):
+		if !walk_state.is_in_range:
 			goap.fsm.pop_state()
 			goap.fsm.push_state(walk_state)
 		elif goap.condition_state["sleep"] == false:
