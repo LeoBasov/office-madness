@@ -1,4 +1,4 @@
-extends "res://actor_2d/Actor2d.gd"
+extends "res://actor_2d/FSM2d.gd"
 
 var axe_life : int = 3
 
