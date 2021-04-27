@@ -3,6 +3,7 @@ extends Node
 signal canceled
 
 var goap : Node
+var fsm : Node
 var preconditions : Dictionary
 var effects : Dictionary
 var cost : float = 1.0 setget , get_cost
@@ -34,6 +35,7 @@ func get_cost() -> float:
 
 func initialize(new_goap : Node) -> void:
 	goap = new_goap
+	fsm = goap.fsm
 	
 	_setpt_up_preconditions()
 	_setpt_up_effects()
