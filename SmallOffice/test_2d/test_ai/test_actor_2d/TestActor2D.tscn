@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ai/actor_2d/Actor2D.tscn" type="PackedScene" id=1]
 [ext_resource path="res://test_2d/test_ai/test_goap_2d/TestGOAP2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://test_2d/test_ai/test_fsm_2d/TestFSM2D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://test_2d/test_ai/test_actor_2d/TestActor2D.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="TestActor2D" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
@@ -11,3 +20,6 @@ script = ExtResource( 4 )
 [node name="TestGOAP2D" parent="." index="0" instance=ExtResource( 2 )]
 
 [node name="TestFSM2D" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="Figure" type="AnimatedSprite" parent="." index="2"]
+frames = SubResource( 1 )
