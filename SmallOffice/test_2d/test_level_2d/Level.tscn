@@ -1,3 +1,15 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://test_2d/test_ai/test_actor_2d/TestActor2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://test_2d/test_level_2d/Camera2D.gd" type="Script" id=2]
 
 [node name="Level" type="Node2D"]
+
+[node name="TestActor2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 641, 198 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2( 513, 298 )
+current = true
+script = ExtResource( 2 )

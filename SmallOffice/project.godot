@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="SmallOffice"
+run/main_scene="res://test_2d/test_level_2d/Level.tscn"
 config/icon="res://icon.png"
 
 [physics]
