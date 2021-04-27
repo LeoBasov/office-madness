@@ -1,4 +1,10 @@
 extends Node2D
 
-func _ready() -> void:
-	$FSM2D.set_actor(self)
+# OVERRIDE THESE
+#===============================================================================
+func initialize(world) -> void:
+	#$FSM2D.set_actor(self)
+	#$GOAP.initialize(world)
+	#$GOAP.set_fsm($FSM2D)
+	pass
+#===============================================================================
