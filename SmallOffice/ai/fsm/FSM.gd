@@ -2,10 +2,8 @@ extends Node
 
 var state_stack : Array
 
-func _ready() -> void:
-	_fsm_ready()
 		
-func _fsm_ready() -> void:
+func _initialize() -> void:
 	state_stack = []
 	
 	for state in $States.get_children():
