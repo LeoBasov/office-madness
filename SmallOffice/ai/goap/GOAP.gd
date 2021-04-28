@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 	var current_action = get_current_action()
 	_update_world_state()
 	
-	if current_action != null:
+	if current_action != null and current_action.check_condition(condition_state):
 		current_action.execute(delta)
 	else:
 		_plan()
