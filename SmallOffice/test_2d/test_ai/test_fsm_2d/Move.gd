@@ -1,8 +1,8 @@
 extends "res://ai/fsm_2d/Move.gd"
 
 var navigator : Navigation2D
-var path_2d : Path2D
-var path_follow_2d : PathFollow2D
+var path_2d : Path2D = Path2D.new()
+var path_follow_2d : PathFollow2D = PathFollow2D.new()
 
 func _is_in_range(delta : float) -> bool:
 	return is_in_range
