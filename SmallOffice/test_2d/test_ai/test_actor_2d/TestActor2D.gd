@@ -4,3 +4,5 @@ func initialize(world) -> void:
 	$TestFSM2D.set_actor(self)
 	$TestGOAP2D.initialize(world)
 	$TestGOAP2D.set_fsm($FSM2D)
+
+	$Area2D.connect("area_entered", $TestFSM2D/States/Move, "_on_area_entered")
