@@ -79,7 +79,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 navpoly = SubResource( 2 )
 
 [node name="TestActor2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1179.21, 160.571 )
+position = Vector2( 1192, 156.311 )
 
 [node name="Key" parent="." instance=ExtResource( 5 )]
 position = Vector2( 160, 152 )

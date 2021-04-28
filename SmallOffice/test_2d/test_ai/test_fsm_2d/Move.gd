@@ -1,8 +1,19 @@
 extends "res://ai/fsm_2d/Move.gd"
 
 var navigator : Navigation2D
-var path_2d : Path2D = Path2D.new()
-var path_follow_2d : PathFollow2D = PathFollow2D.new()
+var path_2d : Path2D
+var path_follow_2d : PathFollow2D
+
+func _ready() -> void:
+	path_2d = Path2D.new()
+	path_follow_2d = PathFollow2D.new()
+	
+	path_follow_2d.loop = false
+	
+	path_2d.add_child(path_follow_2d)
+	add_child(path_2d)
+	
+	speed = 300
 
 func _is_in_range(delta : float) -> bool:
 	return is_in_range
@@ -26,7 +37,9 @@ func _navigate(new_position : Vector2) -> void:
 		for point in path:
 			path_2d.curve.add_point(point)
 			
+		path_follow_2d.unit_offset = 0.0
+			
 
 func _on_area_entered(area : Area2D) -> void:
-	if area.is_in_group("object") and area.is_in_group("key"):
+	if area.get_owner().is_in_group("object") and area.get_owner().is_in_group("key"):
 		is_in_range = true
