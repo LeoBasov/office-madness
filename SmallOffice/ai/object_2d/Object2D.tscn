@@ -3,3 +3,5 @@
 [node name="Object2D" type="Node2D" groups=[
 "object",
 ]]
+
+[node name="Area2D" type="Area2D" parent="."]
