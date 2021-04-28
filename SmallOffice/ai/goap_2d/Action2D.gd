@@ -12,7 +12,25 @@ func _get_target() -> void:
 
 func _execute_action() -> void:
 	pass
+
+func reset() -> void:
+	# TD IMPLEMENT
+	pass
+
+func _setpt_up_preconditions() -> void:
+	# TD IMPLEMENT
+	pass
+
+func _setpt_up_effects() -> void:
+	# TD IMPLEMENT
+	pass
 #===============================================================================
+
+# OVERRIDE THESE FOR DETAILED COST CALCULATION
+#-------------------------------------------------------------------------------
+func get_cost() -> float:
+	return cost
+#-------------------------------------------------------------------------------
 
 func execute(delta : float) -> void:
 	if target == null and _target_exists():
