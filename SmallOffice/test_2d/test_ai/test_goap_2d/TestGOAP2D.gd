@@ -23,3 +23,9 @@ func _update_world_state() -> void:
 		condition_state["key_availible"] = true
 	elif !get_tree().get_nodes_in_group("key").size():
 		condition_state["key_availible"] = false
+
+func _action_canceled(object, is_attached):
+	print(object.name)
+	
+	if is_attached and object.is_in_group("door"):
+		object.open = true

@@ -41,5 +41,9 @@ func _navigate(new_position : Vector2) -> void:
 			
 
 func _on_area_entered(area : Area2D) -> void:
-	if area.get_owner().is_in_group("object") and area.get_owner().is_in_group("key"):
+	var object = area.get_owner()
+	
+	if object.is_in_group("object") and object.is_in_group("key"):
 		is_in_range = true
+	elif object.is_in_group("object") and object.is_in_group("door"):
+		emit_signal("canceled", object, true)

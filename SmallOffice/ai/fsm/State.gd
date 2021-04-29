@@ -1,6 +1,6 @@
 extends Node
 
-signal canceled
+signal canceled(object, is_attached)
 
 var fsm : Node
 

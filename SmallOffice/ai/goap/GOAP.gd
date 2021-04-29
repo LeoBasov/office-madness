@@ -49,7 +49,7 @@ func _update_world_state() -> void:
 	# here checks of the world and its state happen
 	pass
 #===============================================================================
-func _action_canceled():
+func _action_canceled(object, is_attached):
 	_plan()
 
 func _process(delta: float) -> void:

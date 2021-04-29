@@ -1,6 +1,6 @@
 extends Node
 
-signal canceled
+signal canceled(object, is_attached)
 
 var state_stack : Array
 		
@@ -27,5 +27,5 @@ func push_state(state):
 func get_current_state():
 	return state_stack[-1] if state_stack.size() > 0 else null
 
-func _on_state_canceled():
-	emit_signal("canceled")
+func _on_state_canceled(object, is_attached : bool):
+	emit_signal("canceled", object, is_attached)

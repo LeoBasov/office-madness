@@ -1,6 +1,6 @@
 extends Node
 
-signal canceled
+signal canceled(object, is_attached)
 
 var goap : Node
 var fsm : Node
@@ -65,5 +65,5 @@ func _remove_effect(key) -> void:
 	if effects.has(key):
 		effects.erase(key)
 
-func _on_fsm_canceled():
-	emit_signal("canceled")
+func _on_fsm_canceled(object, is_attached):
+	emit_signal("canceled", object, is_attached)
