@@ -1,13 +1,15 @@
 extends Node
 
-var state_stack : Array
+signal canceled
 
+var state_stack : Array
 		
 func _initialize() -> void:
 	state_stack = []
 	
 	for state in $States.get_children():
 		state.initialize(self)
+		state.connect("canceled", self, "_on_state_canceled")
 		
 func _process(delta: float) -> void:
 	var current_state = get_current_state()
@@ -24,3 +26,6 @@ func push_state(state):
 	
 func get_current_state():
 	return state_stack[-1] if state_stack.size() > 0 else null
+
+func _on_state_canceled():
+	emit_signal("canceled")
