@@ -13,6 +13,8 @@ func _set_up() -> void:
 	# world condition state
 	condition_state["key_availible"] = false
 	
+	condition_state["door_1_open"] = true
+	
 	# slef condition state
 	condition_state["has_key"] = false
 	

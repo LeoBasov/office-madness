@@ -77,7 +77,7 @@ position = Vector2( 1192, 156.311 )
 [node name="Key" parent="." instance=ExtResource( 5 )]
 position = Vector2( 160, 152 )
 
-[node name="Door" parent="." instance=ExtResource( 6 )]
+[node name="Door1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 288, 160 )
 
 [node name="Door2" parent="." instance=ExtResource( 6 )]
