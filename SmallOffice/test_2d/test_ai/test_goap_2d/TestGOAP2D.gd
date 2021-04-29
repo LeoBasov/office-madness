@@ -2,6 +2,7 @@ extends "res://ai/goap/GOAP.gd"
 
 func _ready():
 	goals["has_key"] = true
+	goals["door_1_open"] = true
 	
 	current_goal = "has_key"
 
@@ -28,4 +29,8 @@ func _action_canceled(object, is_attached):
 	print(object.name)
 	
 	if is_attached and object.is_in_group("door"):
-		object.open = true
+		if object.name == "Door1" and !object.open and !condition_state["has_key"]:
+			condition_state["door_1_open"] = false
+			goals["door_1_open"] = true
+			current_goal = "door_1_open"
+			_plan()
