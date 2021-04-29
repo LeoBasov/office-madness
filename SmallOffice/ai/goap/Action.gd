@@ -64,3 +64,6 @@ func _remove_precondition(key) -> void:
 func _remove_effect(key) -> void:
 	if effects.has(key):
 		effects.erase(key)
+
+func _on_fsm_canceled():
+	emit_signal("canceled")

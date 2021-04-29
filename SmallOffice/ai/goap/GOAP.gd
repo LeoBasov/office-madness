@@ -81,6 +81,7 @@ func set_fsm(new_fsm):
 	for action in $Actions.get_children():
 		action.initialize(self)
 		action.connect("canceled", self, "_action_canceled")
+		fsm.connect("canceled", action, "_on_fsm_canceled")
 	
 func _plan() -> void:
 	var root = _build_tree()
