@@ -29,7 +29,10 @@ func _action_canceled(object, is_attached):
 	print(object.name)
 	
 	if is_attached and object.is_in_group("door"):
+		var current_action = get_current_action()
+		
 		if !object.open and !condition_state["has_key"]:
+			current_action.target.reachable = false
 			condition_state["door_open"] = false
 			goals["door_open"] = true
 			current_goal = "door_open"

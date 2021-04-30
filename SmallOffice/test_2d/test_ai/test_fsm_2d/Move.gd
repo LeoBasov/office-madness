@@ -41,10 +41,3 @@ func _navigate(new_position : Vector2) -> void:
 			path_2d.curve.add_point(point)
 			
 		path_follow_2d.unit_offset = 0.0
-			
-
-func _on_area_entered(area : Area2D) -> void:
-	var object = area.get_owner()
-	
-	if object.is_in_group("object") and object.is_in_group("door") and !object.open:
-		emit_signal("canceled", object, true)

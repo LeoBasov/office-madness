@@ -20,7 +20,18 @@ func _target_exists() -> bool:
 		return false
 
 func _get_target() -> void:
-	target = get_tree().get_nodes_in_group("key")[0]
+	for key in get_tree().get_nodes_in_group("key"):
+		if key.reachable:
+			target = key
+			return
+	
+	emit_signal("canceled", null, false)
 
 func _execute_action() -> void:
 	goap.condition_state["has_key"] = true
+
+func _on_area_entered(area : Area2D) -> void:
+	var object = area.get_owner()
+	
+	if object.is_in_group("object") and object.is_in_group("door") and !object.open:
+		emit_signal("canceled", object, true)

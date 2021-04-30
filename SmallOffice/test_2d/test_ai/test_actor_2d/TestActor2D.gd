@@ -5,4 +5,4 @@ func initialize(world) -> void:
 	$TestGOAP2D.initialize(world)
 	$TestGOAP2D.set_fsm($TestFSM2D)
 
-	$Area2D.connect("area_entered", $TestFSM2D/States/Move, "_on_area_entered")
+	$Area2D.connect("area_entered", $TestGOAP2D/Actions/GetKey, "_on_area_entered")
