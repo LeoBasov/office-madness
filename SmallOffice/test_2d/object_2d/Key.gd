@@ -1,3 +1,2 @@
-extends Node2D
+extends "res://test_2d/object_2d/Object2D.gd"
 
-var reachable : bool = true
