@@ -22,6 +22,9 @@ func _move(delta : float) -> void:
 	if path_follow_2d and path_2d.curve.get_baked_points() :
 		path_follow_2d.offset += delta*speed
 		actor.position = path_follow_2d.position
+		
+	if path_follow_2d.unit_offset == 1:
+		is_in_range = true
 
 func set_target(new_target : Vector2) -> void:
 	.set_target(new_target)
@@ -43,7 +46,5 @@ func _navigate(new_position : Vector2) -> void:
 func _on_area_entered(area : Area2D) -> void:
 	var object = area.get_owner()
 	
-	if object.is_in_group("object") and object.is_in_group("key"):
-		is_in_range = true
-	elif object.is_in_group("object") and object.is_in_group("door"):
+	if object.is_in_group("object") and object.is_in_group("door") and !object.open:
 		emit_signal("canceled", object, true)

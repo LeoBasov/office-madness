@@ -2,7 +2,7 @@ extends "res://ai/goap/GOAP.gd"
 
 func _ready():
 	goals["has_key"] = true
-	goals["door_1_open"] = true
+	goals["door_open"] = true
 	
 	current_goal = "has_key"
 
@@ -14,7 +14,7 @@ func _set_up() -> void:
 	# world condition state
 	condition_state["key_availible"] = false
 	
-	condition_state["door_1_open"] = true
+	condition_state["door_open"] = true
 	
 	# slef condition state
 	condition_state["has_key"] = false
@@ -29,8 +29,9 @@ func _action_canceled(object, is_attached):
 	print(object.name)
 	
 	if is_attached and object.is_in_group("door"):
-		if object.name == "Door1" and !object.open and !condition_state["has_key"]:
-			condition_state["door_1_open"] = false
-			goals["door_1_open"] = true
-			current_goal = "door_1_open"
+		if !object.open and !condition_state["has_key"]:
+			condition_state["door_open"] = false
+			goals["door_open"] = true
+			current_goal = "door_open"
+			$Actions/OpenDoor.door = object
 			_plan()

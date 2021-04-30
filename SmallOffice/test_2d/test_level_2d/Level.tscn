@@ -88,3 +88,26 @@ position = Vector2( 288, 416 )
 
 [node name="Door4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 416, 416 )
+
+[node name="Plan" type="Label" parent="."]
+margin_left = 1360.0
+margin_right = 1440.0
+margin_bottom = 64.0
+text = "PLAN
+===="
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Goal" type="Label" parent="."]
+margin_left = 1352.0
+margin_top = 512.0
+margin_right = 1472.0
+margin_bottom = 664.0
+text = "GOAL
+====="
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}

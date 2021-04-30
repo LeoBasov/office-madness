@@ -14,8 +14,7 @@ func _execute_action() -> void:
 	pass
 
 func reset() -> void:
-	# TD IMPLEMENT
-	pass
+	target = null
 
 func _setpt_up_preconditions() -> void:
 	# TD IMPLEMENT
