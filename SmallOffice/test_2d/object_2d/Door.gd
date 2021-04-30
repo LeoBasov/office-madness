@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://test_2d/object_2d/Object2D.gd"
 
 export var open : bool = false setget set_open
 
